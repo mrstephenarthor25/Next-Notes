@@ -1,0 +1,28 @@
+
+import TestArea from "@/components/lesson/test.tsx"
+import TerminalBLock from "@/components/lesson/terminal.tsx"
+import CodeBLock from "@/components/lesson/code.tsx"
+import MainHeading from "@/components/headings/Main.tsx"
+
+
+
+
+<MainHeading> Getting Started </MainHeading> 
+This is some **bold** and _italics_ text.
+ 
+This is a list in markdown:
+ 
+- One
+- Two
+- Three
+
+<TestArea/>
+<TerminalBLock text="npm run dev"/>
+<CodeBLock title="app/test.tsx" lang="javascript">
+  {`
+    console.log("hi")
+    console.log("This is just a prototype");
+
+    let still_building = true; 
+  `} 
+</CodeBLock>

@@ -116,6 +116,9 @@
   * {
     @apply border-border outline-ring/50;
   }
+  p{
+    @apply text-base leading-relaxed text-neutral-700 mb-4;
+  }
   body {
     @apply bg-background text-foreground;
   }
