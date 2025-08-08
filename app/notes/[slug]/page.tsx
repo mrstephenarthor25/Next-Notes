@@ -1,11 +1,5 @@
-import { getContent } from "@/app/_hooks/getPage";
-import { PageBuilder } from "@/app/components/pageBuilder";
 import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";
-
-const lessons:any = {
-    "things you need to know": ()=>import("@/mdx/page.mdx")
-}
 
 type prop = {
     params: {slug:string}
@@ -14,12 +8,11 @@ type prop = {
 
 export default async function Note({params}:prop){
    
-    let cleaned_slug = await params.slug.replaceAll("-"," ").replaceAll("%20"," ");
-
+    let slug = params.slug.replaceAll("%20","-");
 
     const lesson = await prisma.notes.findUnique({
         where:{
-            slug:cleaned_slug
+            slug
         }
     });
 
@@ -27,6 +20,7 @@ export default async function Note({params}:prop){
         notFound();
     }
 
+    console.log(`@/mdx/${lesson.content}.mdx`);
     let mod = await import(`@/mdx/${lesson.content}.mdx`);
     const LessonComponent = mod.default;
 

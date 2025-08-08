@@ -7,12 +7,13 @@ import { ReactNode } from "react";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 type prop = {
-    children: ReactNode;
+    children: {props:{children:string | string[]}};
     title:string,
-    lang:string
+    lang:string,
+    numbers?:boolean
 
 }
-export default function CodeBLock({children,title,lang}:prop){
+export default function CodeBLock({children,title,lang,numbers}:prop){
 
 
     let addToClipBoard = ()=>{
@@ -20,8 +21,9 @@ export default function CodeBLock({children,title,lang}:prop){
         console.log("added to clickboard ",children);
     }
 
+console.log(children);
 
-    return <div className="px-1 mt-3 md:px-3">
+    return <div className="px-1 mt-3 mb-[20px] md:px-3">
                 <div className="border border-solid rounded-sm ">
                     <div className=" bg-gray-50 px-3 py-2 border-b border-solid flex 
                     items-center justify-between text-sm"> 
@@ -34,14 +36,14 @@ export default function CodeBLock({children,title,lang}:prop){
                     <SyntaxHighlighter 
                         language = {lang}
                         style = {nightOwl}
-                        showLineNumbers={true}
+                        showLineNumbers={numbers?numbers:false}
                         customStyle={{
                             padding:'2rem 0.9rem',
                             fontSize:'0.9rem',
                             backgroundColor:'black',
                             margin:'0'
                         }}>
-                        {children? children.toString().trim() : "No code passed in"}
+                        {children? children.props.children : "No code passed in"}
                     </SyntaxHighlighter>
                     </div>
         </div>

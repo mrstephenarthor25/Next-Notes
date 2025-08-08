@@ -22,7 +22,7 @@ export default function TerminalBLock({text}:{text:string}){
                             language="bash"
                             style={nightOwl}
                             customStyle={{
-                                padding:'3px 5px',
+                                padding:'3px 8px',
                                 fontSize:'0.9rem',
                                 margin:'0'
                             }}>{text}</SyntaxHighlighter>

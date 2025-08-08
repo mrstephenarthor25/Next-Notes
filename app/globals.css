@@ -116,8 +116,20 @@
   * {
     @apply border-border outline-ring/50;
   }
-  p{
-    @apply text-base leading-relaxed text-neutral-700 mb-4;
+  p,ul{
+    @apply text-[18px] leading-relaxed text-neutral-900 mb-4;
+  }
+ 
+  ul{
+    @apply list-disc pl-6;
+  }
+
+  h1{
+    @apply  my-9
+  }
+
+  h2{
+    @apply my-7
   }
   body {
     @apply bg-background text-foreground;

@@ -1,5 +1,4 @@
 
-import { Nav } from "@/app/components/nav";
 import { NoteArea } from "@/app/components/note_small_box";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -10,6 +9,7 @@ import prisma from "@/lib/prisma";
 
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import AppSidebar from "@/app/components/app-sidebar";
+import { count } from "console";
 
 
 type prop = {
@@ -25,35 +25,33 @@ export default async function NotesLayout({children,params}:prop){
     let all_notes = await prisma.notes.findMany({
         select:{
             title:true,
-            slug:true
+            slug:true,
         }
     });
 
+    let next,prev;
 
+    //get next and previous links
+    let active_index = all_notes.findIndex((note_entry)=>{
 
-    // let sample_aside_content = [
-    //     {
-    //         title:"Perequesites",
-    //         slug: "things-you-need-to-learn-nextjs",
-    //         content:"This is the sample content for this page. #[image:next.svg]# tihs is the content after the image"
-    //     }
-    // ];
+        return note_entry.slug == params.slug.replaceAll("%20","-");
+    });
+
+    //set prev
+    if((active_index - 1) >= 0){ 
+        prev = `/notes/${all_notes[active_index - 1].slug}`;
+    }
+
+    //set next
+    if((active_index + 1) <= all_notes.length-1 ){
+       // console.log(all_notes[active_index + 1].slug);
+        next = `/notes/${all_notes[active_index + 1].slug}`
+    }
 
     let aside_nodes = all_notes.map((entry,index)=>{
         return <li key={index} className={entry.slug == params.slug.replaceAll("%20"," ")? active:''}><Link href={"/notes/"+entry.slug.replaceAll(" ","-")}>{entry.title}</Link></li>
     })
     return <div className="h-full">
-        {/* <Nav/> */}
-        {/* <div className="h-9 text-right p-3 flex justify-between p-3 mb-3 items-center">
-
-            <span className="block md:hidden"><CiMenuBurger/></span>
-            <div className="flex-1 flex justify-end gap-3">
-                <Link href={"/"}>Home</Link>
-                <Link href={"/"}>next</Link> 
-                <Link href={"/"}>previous</Link>
-            </div>
-            
-        </div> */}
 
         <section className="h-full flex bg-white ">
             <aside className="hidden px-3 py-4 bg-slate-50 basis-[10%] md:block">
@@ -70,6 +68,11 @@ export default async function NotesLayout({children,params}:prop){
                         <main className="px-2 py-5 md:px-5">
                             {children}
                         </main>
+
+                        <div className="flex justify-between px-5 py-3">
+                            {prev? <button className="border border-solid rounded-md px-3 py-2 text-blue-700 hover:bg-blue-700 hover:text-white transition-all"><Link href={prev}>Previous</Link></button>: ""}
+                            {next? <button className="border border-solid rounded-md px-3 py-2 text-blue-700 hover:bg-blue-700 hover:text-white transition-all"><Link href={next}>Next</Link></button>:""}
+                        </div>
                     </div>
                 </div>
                 
