@@ -21,5 +21,6 @@ model Notes{
   slug  String @unique
   Published Boolean @default(false)
   content String 
-  quiz String @default("")
+  desc String @default("meta description")
+  test String @default("")
 }

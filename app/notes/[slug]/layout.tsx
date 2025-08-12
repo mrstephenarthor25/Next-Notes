@@ -2,14 +2,11 @@
 import { NoteArea } from "@/app/components/note_small_box";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { ReactNode } from "react" ;
+import { ReactNode} from "react" ;
 import { CiMenuBurger } from "react-icons/ci";
-import prisma from "@/lib/prisma";
 //sidebar
-
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import AppSidebar from "@/app/components/app-sidebar";
-import { count } from "console";
+import { getAllContents, getContent } from "@/app/_db/content";
+import { MobileSideBar } from "@/app/components/mobile-bar";
 
 
 type prop = {
@@ -19,22 +16,46 @@ type prop = {
 
 export default async function NotesLayout({children,params}:prop){
 
+    //check if content as structured_data
+    let setParam = await params; 
+    let schema = await getContent( setParam.slug);
+    let mainEntity,jsonLd;
+
+    if(schema !== null && schema.faq !== undefined){
+        
+       mainEntity =  schema.faq.map(entry => {
+
+            return {
+                "@type":"Question",
+                "name": entry.question,
+                "acceptedAnswer": {
+                    "@type":"Answer",
+                    "text": entry.expectedAnswer
+            }
+        }
+        });
+    }
+    
+    jsonLd = {
+        '@context': "https://schema.org",
+        '@type':"FAQpage",
+        "mainEntity":mainEntity
+    }
+
+    
+
+
     let active = "text-blue-900";
 
     //get all the notes
-    let all_notes = await prisma.notes.findMany({
-        select:{
-            title:true,
-            slug:true,
-        }
-    });
+    let all_notes = await getAllContents();
 
     let next,prev;
 
     //get next and previous links
     let active_index = all_notes.findIndex((note_entry)=>{
 
-        return note_entry.slug == params.slug.replaceAll("%20","-");
+        return note_entry.slug.toLocaleLowerCase() == setParam.slug.replaceAll("%20","-").toLocaleLowerCase();
     });
 
     //set prev
@@ -49,12 +70,18 @@ export default async function NotesLayout({children,params}:prop){
     }
 
     let aside_nodes = all_notes.map((entry,index)=>{
-        return <li key={index} className={entry.slug == params.slug.replaceAll("%20"," ")? active:''}><Link href={"/notes/"+entry.slug.replaceAll(" ","-")}>{entry.title}</Link></li>
+        return <li key={index} className={entry.slug == setParam.slug.replaceAll("%20"," ")? active:''}><Link href={"/notes/"+entry.slug.replaceAll(" ","-")}>{entry.title}</Link></li>
     })
     return <div className="h-full">
 
+        <script 
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+                __html:JSON.stringify(jsonLd).replace(/</g,'\\u003c')
+            }}
+            />
         <section className="h-full flex bg-white ">
-            <aside className="hidden px-3 py-4 bg-slate-50 basis-[10%] md:block">
+            <aside className="-translate-x-full absolute top-0 bottom-0 px-3 py-4 bg-slate-50 basis-[10%] md:translate-none">
                 <ul>
                     {aside_nodes}
                 </ul>
@@ -73,6 +100,8 @@ export default async function NotesLayout({children,params}:prop){
                             {prev? <button className="border border-solid rounded-md px-3 py-2 text-blue-700 hover:bg-blue-700 hover:text-white transition-all"><Link href={prev}>Previous</Link></button>: ""}
                             {next? <button className="border border-solid rounded-md px-3 py-2 text-blue-700 hover:bg-blue-700 hover:text-white transition-all"><Link href={next}>Next</Link></button>:""}
                         </div>
+
+                        <MobileSideBar aside_nodes={aside_nodes}/>
                     </div>
                 </div>
                 

@@ -1,4 +1,3 @@
-"use client";
 
 import Image from "next/image";
 import { CopyBlock } from "./copy";
@@ -16,7 +15,7 @@ export function ImageBlock({src,alt,copy}:prop){
 
             
             <div className="h-full relative rounded-[20px]">
-                <Image src={src} alt={alt} fill={true} className="rounded-[20px]"/>
+                <Image src={src} alt={alt} fill={true} className="rounded-[20px]" priority/>
             </div>
 
             {copy && <CopyBlock/>}

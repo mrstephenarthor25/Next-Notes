@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";
+import { getContent } from "@/app/_db/content";
 
 type prop = {
     params: {slug:string}
@@ -8,20 +9,17 @@ type prop = {
 
 export default async function Note({params}:prop){
    
-    let slug = params.slug.replaceAll("%20","-");
+    let setParams = await params;
+    let slug = setParams.slug.replaceAll("%20","-");
 
-    const lesson = await prisma.notes.findUnique({
-        where:{
-            slug
-        }
-    });
+    const lesson = await getContent(slug);
 
     if(lesson == null){
         notFound();
     }
 
-    console.log(`@/mdx/${lesson.content}.mdx`);
-    let mod = await import(`@/mdx/${lesson.content}.mdx`);
+    // console.log(`@/mdx/${lesson.content}.mdx`);
+    let mod = await import(`@/mdx/${lesson.page}.mdx`);
     const LessonComponent = mod.default;
 
     return <LessonComponent/>

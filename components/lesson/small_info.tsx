@@ -1,6 +1,6 @@
 export default function SmallInfoBox({flag,question,answer}:{flag:boolean,question:string,answer:string}){
 
-    return <div>
+    return <div className="px-3">
 
         <span>{question} <button>open</button></span>
 
