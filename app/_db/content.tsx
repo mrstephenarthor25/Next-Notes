@@ -31,11 +31,11 @@ export const contents = [
         publish:true
     },
 
-    {
-        title:"How to create a Next.js app",
-        slug:"How-to-create-a-Next.js-app",
-        page:"create"
-    },
+    // {
+    //     title:"How to create a Next.js app",
+    //     slug:"How-to-create-a-Next.js-app",
+    //     page:"create"
+    // },
 
     {
         title:"Did you like the notes?",
