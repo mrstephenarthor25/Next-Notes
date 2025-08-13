@@ -8,7 +8,7 @@ import { MobileSideBar } from "@/app/components/mobile-bar";
 
 type prop = {
     children: ReactNode,
-    params:{slug:string}
+    params:Promise<{slug:string}>
 }
 
 export default async function NotesLayout({children,params}:prop){
@@ -69,7 +69,7 @@ export default async function NotesLayout({children,params}:prop){
     const aside_nodes = all_notes.map((entry,index)=>{
         return <li key={index} className={entry.slug == setParam.slug.replaceAll("%20"," ")? active:''}><Link href={"/notes/"+entry.slug.replaceAll(" ","-")}>{entry.title}</Link></li>
     });
-    
+
     return <div className="h-full">
 
         <script 
