@@ -45,7 +45,7 @@ export function MobileSideBar({aside_nodes}:{aside_nodes:ReactNode}){
                     </ul>
 
                     <div className="px-3 py-2 w-full bg-white sticky bottom-0 rounded-md text-center">
-                        <Link href="/" className="flex items-center gap-3 justify-center"><HomeIcon/>Home</Link>
+                        <Link href="/" className="flex items-center gap-3 justify-center text-black"><HomeIcon/>Home</Link>
                     </div>
                 </div>
             </div>
