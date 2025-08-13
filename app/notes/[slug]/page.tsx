@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { getContent } from "@/app/_db/content";
 
 type prop = {
-    params: {slug:string}
+    params: Promise<{slug:string}>
 }
 
 
