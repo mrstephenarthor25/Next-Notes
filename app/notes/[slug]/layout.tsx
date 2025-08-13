@@ -81,10 +81,14 @@ export default async function NotesLayout({children,params}:prop){
             }}
             />
         <section className="h-full flex bg-white ">
-            <aside className="-translate-x-full absolute top-0 bottom-0 px-3 py-4 bg-slate-50 basis-[10%] md:translate-none">
+            <aside className="flex flex-col justify-between -translate-x-full absolute top-0 bottom-0 px-3 py-4 bg-slate-50 basis-[10%] md:translate-none">
                 <ul>
                     {aside_nodes}
                 </ul>
+
+                <div className="shadow-sm px-3 py-2 rounded-md text-center">
+                    <Link href="/">Home</Link>
+                </div>
             </aside>
 
             <div className="flex-1 flex justify-center md:px-3">
