@@ -1,4 +1,3 @@
-import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import { getContent } from "@/app/_db/content";
 
@@ -9,8 +8,8 @@ type prop = {
 
 export default async function Note({params}:prop){
    
-    let setParams = await params;
-    let slug = setParams.slug.replaceAll("%20","-");
+    const setParams = await params;
+    const slug = setParams.slug.replaceAll("%20","-");
 
     const lesson = await getContent(slug);
 
@@ -19,7 +18,7 @@ export default async function Note({params}:prop){
     }
 
     // console.log(`@/mdx/${lesson.content}.mdx`);
-    let mod = await import(`@/mdx/${lesson.page}.mdx`);
+    const mod = await import(`@/mdx/${lesson.page}.mdx`);
     const LessonComponent = mod.default;
 
     return <LessonComponent/>

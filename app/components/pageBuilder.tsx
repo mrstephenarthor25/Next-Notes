@@ -1,12 +1,12 @@
 import type { Element } from "../types/custom";
-import Image from "next/image";
 import { ImageBlock } from "./image_block";
+
 type prop = {
     content: Element[]
 }
 export function PageBuilder({content}:prop){
 
-    let page_build = content.map((element,index)=>{
+    const page_build = content.map((element,index)=>{
 
         switch(element.type){
             case "h1": return <h1 className="font-bold text-[25px] my-5 "key={index}> {element.content}</h1>

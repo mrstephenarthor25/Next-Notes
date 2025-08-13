@@ -1,10 +1,7 @@
 
 import { NoteArea } from "@/app/components/note_small_box";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 import { ReactNode} from "react" ;
-import { CiMenuBurger } from "react-icons/ci";
-//sidebar
 import { getAllContents, getContent } from "@/app/_db/content";
 import { MobileSideBar } from "@/app/components/mobile-bar";
 
@@ -17,8 +14,8 @@ type prop = {
 export default async function NotesLayout({children,params}:prop){
 
     //check if content as structured_data
-    let setParam = await params; 
-    let schema = await getContent( setParam.slug);
+    const setParam = await params; 
+    const schema = await getContent( setParam.slug);
     let mainEntity,jsonLd;
 
     if(schema !== null && schema.faq !== undefined){
@@ -45,15 +42,15 @@ export default async function NotesLayout({children,params}:prop){
     
 
 
-    let active = "text-blue-900";
+    const active = "text-blue-900";
 
     //get all the notes
-    let all_notes = await getAllContents();
+    const all_notes = await getAllContents();
 
     let next,prev;
 
     //get next and previous links
-    let active_index = all_notes.findIndex((note_entry)=>{
+    const active_index = all_notes.findIndex((note_entry)=>{
 
         return note_entry.slug.toLocaleLowerCase() == setParam.slug.replaceAll("%20","-").toLocaleLowerCase();
     });
@@ -69,9 +66,10 @@ export default async function NotesLayout({children,params}:prop){
         next = `/notes/${all_notes[active_index + 1].slug}`
     }
 
-    let aside_nodes = all_notes.map((entry,index)=>{
+    const aside_nodes = all_notes.map((entry,index)=>{
         return <li key={index} className={entry.slug == setParam.slug.replaceAll("%20"," ")? active:''}><Link href={"/notes/"+entry.slug.replaceAll(" ","-")}>{entry.title}</Link></li>
-    })
+    });
+    
     return <div className="h-full">
 
         <script 

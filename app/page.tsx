@@ -1,7 +1,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import nextImage from "@/public/next.svg";
 import { Metadata } from "next";
 
 export const metadata :Metadata ={

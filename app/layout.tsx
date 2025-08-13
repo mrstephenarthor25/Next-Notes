@@ -1,8 +1,6 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { faq } from "./_FAQ/faq";
-import prisma from "@/lib/prisma";
+
 
 
 const geistSans = Geist({
@@ -10,9 +8,7 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-type props = {
-  params: Promise<{slug:string}>
-}
+
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
