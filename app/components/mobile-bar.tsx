@@ -42,9 +42,6 @@ export function MobileSideBar({aside_nodes}:{aside_nodes:ReactNode}){
                 <div className=" relative bg-white shadow-md shadow-gray-200 h-[40vh] w-full rounded-md overflow-x-auto">
                     <ul className="list-none pb-[10vh] px-3 pt-3">
                         {aside_nodes}
-                        {aside_nodes}
-                        {aside_nodes}
-
                     </ul>
 
                     <div className="px-3 py-2 w-full bg-white sticky bottom-0 rounded-md text-center">
