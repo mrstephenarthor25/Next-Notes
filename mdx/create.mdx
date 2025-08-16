@@ -1,0 +1,79 @@
+import TerminalBLock from "@/components/lesson/terminal.tsx"
+import CodeBLock from "@/components/lesson/code.tsx"
+import MyH2 from "@/components/headings/H2.tsx"
+import Info from "@/components/lesson/info.tsx"
+import Pun from "@/components/lesson/pun.tsx"
+import Tip from "@/components/lesson/tip.tsx"
+import TextInImage from "@/components/lesson/image_text.tsx"
+import congrats_image from "@/public/congratulations.gif";
+
+
+Now that you understand what Next.js is and why it's needed, let's see how to 
+create a Next.Js app.
+
+While a Next.Js app can be created manually, the easiest and recommended way is to use a 
+tool called <em>create-next-app</em>.<br/>This tool sets up everything for you so you dont have to worry about manual configurations but instead  
+start coding almost immediately!
+
+<MyH2>Installation</MyH2>
+
+Before you install NextJs, let's make sure your device meets the system requirements.
+To be able to install the latest version of Next.Js you'll need:
++ Node version 18.18 or newer
++ Windows, Linux or MacOs operating System.
+
+If you're not sure wether your device meets these requirements you can <button>Check your device here </button> 
+
+
+<MyH2>Let's Creat your NextJS app</MyH2>
+
++ open your terminal and run the command (Ps: internet connection is required):
+<TerminalBLock text={"npx create-next-app@latest"}/>
+
+<Tip>
+    npx comes with Node.js so no extra installation needed
+</Tip>
+
++ You would be asked the following questions to proceed with the installation:
+
+<CodeBLock lang="bash" title="Create-next-app prompts" >
+    What is your project named? #enter name of project without space
+    Would you like to use Typescript? (Yes/No) #yes
+    Would you like to use Eslint? (Yes/No) #yes
+    Would you like to use Tailwind CSS? (Yes/No) #yes
+    Would you like to use src/ directory? (Yes/No) #No
+    Would you like to use App Router? (Yes/No) #yes
+    Would you like to use customize the default import alias(@/*)? (Yes/No) #yes
+</CodeBLock>
+
+<Tip>
+    + As a React developer, there is a very high chance you already know
+    what each prompt is refering to. 
+    If there's any propmt asked that you're not sure of, most likely that would be 
+    <em>"Would you like to use App Router?"</em> <br/>
+    Please just answer "yes" for now, we'll talk about it in another note
+
+    + These lessons assumes you know Typescript (at the basic level at least). If you don't,
+    Please consider taking a crash course on it. You could do so now or at another time, but please make
+    sure you do so.
+    Typescript is becoming more of a standard for production ready applications. 
+</Tip>
+
+Once the installation is complete:
+
+<CodeBLock title="Move into to the Nextjs app directory" lang="bash">
+    cd [my-app-name]
+</CodeBLock>
+<br/>
+<em>my-app-name</em> should be replaced with the name of your project.
+
+Finally:
+<CodeBLock title="Start the development server" lang="bash">
+    npm run dev
+</CodeBLock>
+<br/>
+<br/>
+After starting the server, you can open your Next.js App on <br/>
+http://localhost:3000/ (copy and paste the url in your browser)
+
+<TextInImage src={congrats_image} alt="Congratulations" text={"Congratulations on creating your Next.js application"}/>
