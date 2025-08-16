@@ -15,6 +15,14 @@ type content = {
 }
 
 export const contents: content[] = [
+    // {
+    //     title:"The internet",
+    //     slug:"The-internet",
+    //     page:"internet",
+    //     desc:"Description",
+    //     publish:true
+    // },
+
     {
         title:"What is Next.js?",
         slug:"What-is-Nextjs",
@@ -33,7 +41,6 @@ export const contents: content[] = [
         ],
         publish:true
     },
-
     // {
     //     title:"How to create a Next.js app",
     //     slug:"How-to-create-a-Next.js-app",
