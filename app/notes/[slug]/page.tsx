@@ -19,7 +19,8 @@ export default async function Note({params}:prop){
 
     
     console.log(lesson.page);
-    const mod = await import(`@/mdx/${lesson.page}.mdx`);
+    const import_str = "@/mdx/"+lesson.page+".mdx";
+    const mod = await import(import_str);
     const LessonComponent = mod.default;
 
     return <LessonComponent/>
