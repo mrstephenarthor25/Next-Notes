@@ -4,8 +4,28 @@ import Link from "next/link";
 import { ReactNode} from "react" ;
 import { getAllContents, getContent } from "@/app/_db/content";
 import { MobileSideBar } from "@/app/components/mobile-bar";
+import Pagination from "@/app/components/pagination";
+import { Metadata } from "next";
 
 
+type urlProp = {
+    params: Promise<{slug:string}>
+}
+export async function generateMetadata({params}:urlProp): Promise<Metadata | undefined>{
+
+    const slug = (await params).slug;
+
+    const content = await getContent(slug);
+
+    if(content !== null){
+
+        return {
+            title: content.title,
+            description:content.desc
+        }
+    }
+    
+}
 type prop = {
     children: ReactNode,
     params:Promise<{slug:string}>
@@ -94,16 +114,23 @@ export default async function NotesLayout({children,params}:prop){
                    <NoteArea/>
 
                    <div className="bg-white rounded-lg w-[90%] overflow-auto absolute bottom-5 h-[80vh] max-h-[80vh]">
+                        <div className="px-3 h-[50vh] pb-5 flex items-end md:h-[20vh]">
+
+                            <div>
+                                <span className="text-gray-500 bg-gray-100 px-4 py-2 font-bold rounded-full">{active_index+1}</span>
+                                <h1 className="text-3xl mt-2 mb-0 py-4 ">{all_notes[active_index].title}</h1>
+                            </div>  
+
+                        </div>
+
                         <main className="px-2 py-5 md:px-5">
                             {children}
                         </main>
 
-                        <div className="flex justify-between px-5 py-3">
-                            {prev? <button className="border border-solid rounded-md px-3 py-2 text-blue-700 hover:bg-blue-700 hover:text-white transition-all"><Link href={prev}>Previous</Link></button>: ""}
-                            {next? <button className="border border-solid rounded-md px-3 py-2 text-blue-700 hover:bg-blue-700 hover:text-white transition-all"><Link href={next}>Next</Link></button>:""}
-                        </div>
+                       
+                       <Pagination next={next} prev={prev} prevTitle={all_notes[active_index - 1]?.title} nextTitle={all_notes[active_index + 1]?.title}/>
 
-                        <MobileSideBar aside_nodes={aside_nodes}/>
+                        <MobileSideBar aside_nodes={aside_nodes} title={all_notes[active_index].title} chapter={active_index + 1}/>
                     </div>
                 </div>
                 

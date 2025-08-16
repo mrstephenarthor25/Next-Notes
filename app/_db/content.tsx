@@ -8,15 +8,18 @@ type content = {
     title:string,
     slug:string,
     page:string,
+    desc?:string,
     faq?: FaqEntry[],
-    publish?:boolean
+    publish?:boolean,
+
 }
 
-export const contents = [
+export const contents: content[] = [
     {
         title:"What is Next.js?",
         slug:"What-is-Nextjs",
         page:"What_is_Nextjs",
+        desc:"Description",
         faq:[
            {
             question:"What is Next.js?",
