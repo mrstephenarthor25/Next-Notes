@@ -16,6 +16,23 @@ type content = {
 
 export const contents: content[] = [
     {
+        title:"A brief review of the internet and websites",
+        slug:"A-brief-review-of-the-internet-and-websites",
+        page:"the_internet",
+        desc:"What is a website? This is a brief overview of websites, and frameworks. This overview starts from the dev",
+        publish:true
+    },
+
+    {
+        title:"A brief review of React",
+        slug:"A-brief-review-of-React",
+        page:"react",
+        desc:"What is the react framework? This is a brief overview of websites, and frameworks. This overview starts from the dev",
+        publish:true
+    },
+
+
+    {
         title:"What is Next.js?",
         slug:"What-is-Nextjs",
         page:"What_is_Nextjs",
