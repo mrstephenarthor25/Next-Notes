@@ -18,7 +18,7 @@ export const contents: content[] = [
     {
         title:"A brief review of the internet and websites",
         slug:"A-brief-review-of-the-internet-and-websites",
-        page:"learn_more",
+        page:"page",
         desc:"What is a website? This is a brief overview of websites, and frameworks. This overview starts from the dev",
         publish:true
     },
