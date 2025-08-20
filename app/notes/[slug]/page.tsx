@@ -17,10 +17,9 @@ export default async function Note({params}:prop){
         notFound();
     }
 
-    
-    console.log(lesson.page);
-    const import_str = "@/mdx/"+lesson.page+".mdx";
-    const mod = await import(import_str);
+
+   
+    const mod = await lesson.reslove();
     const LessonComponent = mod.default;
 
     return <LessonComponent/>
