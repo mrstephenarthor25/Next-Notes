@@ -16,23 +16,23 @@ type content = {
 }
 
 export const contents: content[] = [
-    {
-        title:"A brief review of the internet and websites",
-        slug:"A-brief-review-of-the-internet-and-websites",
-        page:"internet",
-        reslove:()=>import("@/mdx/internet.mdx"),
-        desc:"What is a website? This is a brief overview of websites, and frameworks. This overview starts from the dev",
-        publish:true
-    },
+    // {
+    //     title:"A brief review of the internet and websites",
+    //     slug:"A-brief-review-of-the-internet-and-websites",
+    //     page:"internet",
+    //     reslove:()=>import("@/mdx/internet.mdx"),
+    //     desc:"What is a website? This is a brief overview of websites, and frameworks. This overview starts from the dev",
+    //     publish:true
+    // },
 
-    {
-        title:"A brief review of React",
-        slug:"A-brief-review-of-React",
-        page:"react",
-        reslove:()=>import("@/mdx/react.mdx"),
-        desc:"What is the react framework? This is a brief overview of websites, and frameworks. This overview starts from the dev",
-        publish:true
-    },
+    // {
+    //     title:"A brief review of React",
+    //     slug:"A-brief-review-of-React",
+    //     page:"react",
+    //     reslove:()=>import("@/mdx/react.mdx"),
+    //     desc:"What is the react framework? This is a brief overview of websites, and frameworks. This overview starts from the dev",
+    //     publish:true
+    // },
 
 
     {
@@ -55,11 +55,13 @@ export const contents: content[] = [
         publish:true
     },
 
-    // {
-    //     title:"How to create a Next.js app",
-    //     slug:"How-to-create-a-Next.js-app",
-    //     page:"create"
-    // },
+    {
+        title:"How to create a Next.js app",
+        slug:"How-to-create-a-Next.js-app",
+        page:"create",
+        desc:"description",
+        reslove:()=>import("@/mdx/create.mdx"),
+    },
 
     {
         title:"Did you like the notes?",

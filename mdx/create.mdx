@@ -6,26 +6,38 @@ import Pun from "@/components/lesson/pun.tsx"
 import Tip from "@/components/lesson/tip.tsx"
 import TextInImage from "@/components/lesson/image_text.tsx"
 import congrats_image from "@/public/congratulations.gif";
+import MySection from "@/components/lesson/section.tsx";
+import System from "@/components/lesson/system.tsx";
+import TypeScriptDesc from "@/components/lesson/typescript_button.tsx";
 
 
+
+
+<MySection>
 Now that you understand what Next.js is and why it's needed, let's see how to 
 create a Next.Js app.
 
 While a Next.Js app can be created manually, the easiest and recommended way is to use a 
-tool called <em>create-next-app</em>.<br/>This tool sets up everything for you so you dont have to worry about manual configurations but instead  
-start coding almost immediately!
+tool called <em>create-next-app</em>.<br/>This tool sets up everything for you so you don't have to worry about manual configurations.  Instead, you can  start coding almost immediately!
+</MySection>
 
+<MySection>
 <MyH2>Installation</MyH2>
 
-Before you install NextJs, let's make sure your device meets the system requirements.
-To be able to install the latest version of Next.Js you'll need:
+Before you create your Next.Js app, let's make sure your device meets the system requirements.
+To be able to create a Next.js app using the latest version of Next.Js, you'll need:
+
 + Node version 18.18 or newer
 + Windows, Linux or MacOs operating System.
 
-If you're not sure wether your device meets these requirements you can <button>Check your device here </button> 
+<System button_text="Check my device">
+    <small className="block">Software check</small>
+</System>
+</MySection>
 
+<MySection>
 
-<MyH2>Let's Creat your NextJS app</MyH2>
+<MyH2>Let's Create your Next.JS app</MyH2>
 
 + open your terminal and run the command (Ps: internet connection is required):
 <TerminalBLock text={"npx create-next-app@latest"}/>
@@ -43,20 +55,17 @@ If you're not sure wether your device meets these requirements you can <button>C
     Would you like to use Tailwind CSS? (Yes/No) #yes
     Would you like to use src/ directory? (Yes/No) #No
     Would you like to use App Router? (Yes/No) #yes
-    Would you like to use customize the default import alias(@/*)? (Yes/No) #yes
+    Would you like to customize the default import alias(@/*)? (Yes/No) #yes
 </CodeBLock>
 
 <Tip>
     + As a React developer, there is a very high chance you already know
     what each prompt is refering to. 
-    If there's any propmt asked that you're not sure of, most likely that would be 
+    If there's any prompt asked that you're not sure of, most likely that would be 
     <em>"Would you like to use App Router?"</em> <br/>
-    Please just answer "yes" for now, we'll talk about it in another note
+    Please choose "yes" for now, we'll talk about it later. so don't worry if it doesn't make sense now.
 
-    + These lessons assumes you know Typescript (at the basic level at least). If you don't,
-    Please consider taking a crash course on it. You could do so now or at another time, but please make
-    sure you do so.
-    Typescript is becoming more of a standard for production ready applications. 
+    + These lessons use a little Typescript. if you're not familiar, don't worry i'll give quick explanations along the way- just click on the <TypeScriptDesc/> button to view the explanation.
 </Tip>
 
 Once the installation is complete:
@@ -65,7 +74,7 @@ Once the installation is complete:
     cd [my-app-name]
 </CodeBLock>
 <br/>
-<em>my-app-name</em> should be replaced with the name of your project.
+<em>[my-app-name]</em> should be replaced with the name of your project.
 
 Finally:
 <CodeBLock title="Start the development server" lang="bash">
@@ -75,5 +84,9 @@ Finally:
 <br/>
 After starting the server, you can open your Next.js App on <br/>
 http://localhost:3000/ (copy and paste the url in your browser)
+<br/>
+<br/>
 
-<TextInImage src={congrats_image} alt="Congratulations" text={"Congratulations on creating your Next.js application"}/>
+<TextInImage src={congrats_image} alt="Congratulations on creating your Next.js app" text={"Congratulations on creating your Next.js application"}/>
+
+</MySection>
