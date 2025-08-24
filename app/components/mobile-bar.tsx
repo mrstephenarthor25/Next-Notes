@@ -13,7 +13,7 @@ export function MobileSideBar({aside_nodes,title,chapter}:{aside_nodes:ReactNode
 
 
     return <div>
-        <div className="px-3 py-2">
+        <div className="px-3 py-2 md:hidden">
             
             {open == false && <div className="flex gap-3 items-center px-3 py-3 rounded-md bg-white shadow-md  shadow-gray-50 fixed top-[15%] right-[8%] w-[85vw] md:hidden">
                     <button onClick={_=>setOpen(true)}><LucideMenu className="text-gray-500"/></button>

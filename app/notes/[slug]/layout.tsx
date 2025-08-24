@@ -6,6 +6,7 @@ import { getAllContents, getContent } from "@/app/_db/content";
 import { MobileSideBar } from "@/app/components/mobile-bar";
 import Pagination from "@/app/components/pagination";
 import { Metadata } from "next";
+import Footer from "@/app/components/footer";
 
 
 type urlProp = {
@@ -130,6 +131,7 @@ export default async function NotesLayout({children,params}:prop){
                        
                        <Pagination next={next} prev={prev} prevTitle={all_notes[active_index - 1]?.title} nextTitle={all_notes[active_index + 1]?.title}/>
 
+                       <Footer placeholder={all_notes[active_index].title}/>
                         <MobileSideBar aside_nodes={aside_nodes} title={all_notes[active_index].title} chapter={active_index + 1}/>
                     </div>
                 </div>
