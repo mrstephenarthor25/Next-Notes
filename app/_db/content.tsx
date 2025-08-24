@@ -9,12 +9,32 @@ type content = {
     slug:string,
     page:string,
     desc?:string,
+    reslove: ()=>Promise<{default:React.ComponentType<any>}>,
     faq?: FaqEntry[],
     publish?:boolean,
 
 }
 
 export const contents: content[] = [
+    // {
+    //     title:"A brief review of the internet and websites",
+    //     slug:"A-brief-review-of-the-internet-and-websites",
+    //     page:"internet",
+    //     reslove:()=>import("@/mdx/internet.mdx"),
+    //     desc:"What is a website? This is a brief overview of websites, and frameworks. This overview starts from the dev",
+    //     publish:true
+    // },
+
+    // {
+    //     title:"A brief review of React",
+    //     slug:"A-brief-review-of-React",
+    //     page:"react",
+    //     reslove:()=>import("@/mdx/react.mdx"),
+    //     desc:"What is the react framework? This is a brief overview of websites, and frameworks. This overview starts from the dev",
+    //     publish:true
+    // },
+
+
     // {
     //     title:"The internet",
     //     slug:"The-internet",
@@ -28,6 +48,7 @@ export const contents: content[] = [
         slug:"What-is-Nextjs",
         page:"What_is_Nextjs",
         desc:"Description",
+        reslove:()=>import("@/mdx/What_is_Nextjs.mdx"),
         faq:[
            {
             question:"What is Next.js?",
@@ -41,6 +62,7 @@ export const contents: content[] = [
         ],
         publish:true
     },
+
     // {
     //     title:"How to create a Next.js app",
     //     slug:"How-to-create-a-Next.js-app",
@@ -50,7 +72,8 @@ export const contents: content[] = [
     {
         title:"Did you like the notes?",
         slug:"Did-you-like-the-notes",
-        page:"learn_more"
+        page:"learn_more",
+        reslove:()=>import("@/mdx/learn_more.mdx")
     },
     
 ]
