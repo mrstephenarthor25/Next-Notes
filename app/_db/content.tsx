@@ -63,11 +63,13 @@ export const contents: content[] = [
         publish:true
     },
 
-    // {
-    //     title:"How to create a Next.js app",
-    //     slug:"How-to-create-a-Next.js-app",
-    //     page:"create"
-    // },
+    {
+        title:"How to create a Next.js app",
+        slug:"How-to-create-a-Next.js-app",
+        page:"create",
+        desc:"Description",
+        reslove:()=>import("@/mdx/create.mdx"),
+    },
 
     {
         title:"Did you like the notes?",
