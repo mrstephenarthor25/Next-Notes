@@ -67,7 +67,7 @@ export const contents: content[] = [
         title:"How to create a Next.js app",
         slug:"How-to-create-a-Next.js-app",
         page:"create",
-        desc:"Description",
+        desc:"Learn how to create a Next.js app with this beginner-friendly guide. This 5-step walkthrough is designed to make your Next.js learning journey simple and clear.",
         reslove:()=>import("@/mdx/create.mdx"),
     },
 
@@ -101,4 +101,5 @@ export async function getContent(slug:string){
 export async function getAllContents(){
 
     return contents;
+
 }
