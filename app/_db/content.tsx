@@ -47,7 +47,7 @@ export const contents: content[] = [
         title:"What is Next.js?",
         slug:"What-is-Nextjs",
         page:"What_is_Nextjs",
-        desc:"Description",
+        desc:"What is Next.js? This beginner-friendly guide shows what it is, why it matters, and how it extends React—making fast, SEO-friendly apps easy to build",
         reslove:()=>import("@/mdx/What_is_Nextjs.mdx"),
         faq:[
            {
@@ -103,3 +103,4 @@ export async function getAllContents(){
     return contents;
 
 }
+
