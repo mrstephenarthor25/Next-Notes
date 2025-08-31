@@ -28,7 +28,7 @@ export default function Home() {
         Basically, the lessons are designed in a way that I would have loved to learn Next.js if I had to start over again.
         </p>
 
-        <p>I really hope this helps in taking you to the next level as a developer!.</p>
+        <p>I really hope this helps in taking you to the next level as a Next.js developer!.</p>
 
       </div>
         <div className="flex gap-4 items-center flex-col sm:flex-row">
