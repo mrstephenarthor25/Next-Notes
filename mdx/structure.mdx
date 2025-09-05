@@ -65,14 +65,15 @@ But first, let’s understand what each folder and file in the Next.js folder st
 
         <SampleImage src={top_level_folders} alt="alt text" caption={"Top level folders of a Next.js 15 project (with and without the src directory )"}/>
 
-        By default, the top-level folders include:
+        By default, the top-level folders are:
         - .next folder
+        - node_modules folder
         - app folder
         - public folder
         - src (optional)
 
         <Info>
-            Did you notice that the .next folder isn't shown in the image of the top level folders above? we'll talk about that folder shortly, 
+            Did you notice that the .next and node_modules folder are not shown in the image of the top level folders above? we'll talk about those folders shortly, 
         </Info>
         #### App folder 
         
@@ -115,12 +116,53 @@ But first, let’s understand what each folder and file in the Next.js folder st
         These files help configure your app, manage dependencies, and define settings like imports, scripts, and environment variables.
         
         <SampleImage src={top_level_files} caption="The default top level files of a Next.js 15 project (excluding the .gitignore file)" alt="7 of the 8 default top level files of a Next.js 15 project (excluding the .gitignore file)"/>
+        #### eslint.config.mjs
+        This file is use to configure ESLint, a tool that checks your code for errors and makes sure you follow coding standards.
+        
+        #### next-env.d.ts
+        This is a special file that tells Typescript the types that Next.js provides. You don't need to edit this file, 
+        Next.js manages it for you.
+        
+        <Info>
+            This file is not tracked by git. Also, it is only created if you choose to use Typescript in your Next.js project. 
+        </Info>
+
+        #### package-lock.json
+        This file is used to keep track of the exact version of the third party libraries your project depends on (dependencies) and their sub-dependencies.
+        That way, if you or someone else installs this project later, you both get the same dependencies that were used in creating the project in the first place.
+
+
         #### package.json
         Keeps track of your dependencies and project scripts.
-        #### next.config.js (Optional) 
         
+
+        #### postcss.config.mjs
+        This file is used to provide a plugin for processing your Tailwind css utility classes.
+        <Info>
+            The create-next-app tool adds this file automatically if you choose to use Tailwind css in your Next.js project during the project setup.
+        </Info>
+
+        #### next.config.ts
         This file customizes your Next.js app. It can define redirects, enable experimental features, or adjust how images are handled.
         It is a general rule of thumb to avoid copy-pasting configs from the internet without actually Knowing what it does to your project. 
+        <Info>  
+            If you choose not to use JavaScript in your Next.js project, the create-next-app tool would give you
+            the JavaScript equivalent of this file (next.config.js)
+        </Info>
+
+        #### Readme.md
+        This file is used to describe your project. By default, Next.js adds instructions on how to :
+        - run the development server (<code>npm run dev </code>)
+        - build the project (<code>npm run build</code>)
+        - start the production server (<code>npm build</code>)
+        - links to the Next.js docs
+
+        <Info>
+            Though the file is created by default, feel free to edit it.
+            The reason for the file is to help you describe your project in a way that would help 
+            you or anyone else understand what the project is about.
+        </Info>
+
         #### tsconfig.json / jsconfig.json
 
         Controls how imports and paths work in your project.
@@ -169,7 +211,6 @@ But first, let’s understand what each folder and file in the Next.js folder st
      <Info>
         This lesson only considers the default files and folders that are created when you create a Next.js project. 
         There are other files that are not available by default but might come in handy depending on the project requirement. 
-        
     </Info>
 
 
