@@ -38,6 +38,7 @@ export default async function NotesLayout({children,params}:prop){
     const setParam = await params; 
     const schema = await getContent( setParam.slug);
     let mainEntity,jsonLd;
+    mainEntity = null;
 
     if(schema !== null && schema.faq !== undefined){
         
@@ -93,12 +94,13 @@ export default async function NotesLayout({children,params}:prop){
 
     return <div className="h-full">
 
-        <script 
+       { mainEntity && <script 
             type="application/ld+json"
             dangerouslySetInnerHTML={{
                 __html:JSON.stringify(jsonLd).replace(/</g,'\\u003c')
             }}
-            />
+            />}
+            
         <section className="h-full flex bg-white ">
             <aside className="flex flex-col justify-between -translate-x-full absolute top-0 bottom-0 px-3 py-4 bg-slate-50 basis-[10%] md:translate-none">
                 <ul>
