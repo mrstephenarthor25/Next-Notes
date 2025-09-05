@@ -9,7 +9,9 @@ import congrats_image from "@/public/congratulations.gif";
 import MySection from "@/components/lesson/section.tsx";
 import System from "@/components/lesson/system.tsx";
 import TypeScriptDesc from "@/components/lesson/typescript_button.tsx";
-
+import SampleImage from "@/components/lesson/sample_image.tsx";
+import server_started_img from "@/public/images/Nextjs-application-server-started.png";
+import default_page from "@/public/images/default-page-of-a-newly-created-Next.js-15-project.png";
 
 
 
@@ -80,12 +82,20 @@ Finally:
 <CodeBLock title="Start the development server" lang="bash">
     npm run dev
 </CodeBLock>
+<SampleImage src={server_started_img} alt="successfully started the development server for the Next.js project" caption="successfully started the development server for the Next.js project using the command 'npm run dev'"/>
+
 <br/>
 <br/>
 After starting the server, you can open your Next.js App on <br/>
 http://localhost:3000/ (copy and paste the url in your browser)
 <br/>
 <br/>
+
+After opening the url (http://localhost:3000/) on your browser, you should see the following output:
+
+<SampleImage src={default_page} alt="default page of a newly created Next.js 15 project" caption="The default page of a newly created Next.js 15 project"/>
+
+And that's it..
 
 <TextInImage src={congrats_image} alt="Congratulations on creating your Next.js app" text={"Congratulations on creating your Next.js application"}/>
 

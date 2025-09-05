@@ -72,6 +72,15 @@ export const contents: content[] = [
     },
 
     {
+        title:"Next.js project Structure",
+        slug:"Next.js-project-Structure",
+        page:"structure",
+        desc:"Learn what each default file and folder in the Next.js project structre is, common mistakes you can avoid",
+        reslove:()=>import("@/mdx/structure.mdx"),
+    },
+
+
+    {
         title:"Did you like the notes?",
         slug:"Did-you-like-the-notes",
         page:"learn_more",

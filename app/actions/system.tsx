@@ -11,7 +11,7 @@ export default async function check_device(){
     const parts = currentNodeVersion.split(".");
 
     //check if major version is greater or equal to 20
-    console.log(Number(parts[0]) );
+    
     if(Number(parts[0]) >= 20 || (Number(parts[0])  >= 18 && Number(parts[1])  >= 17 )){
 
         return {
