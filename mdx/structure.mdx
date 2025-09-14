@@ -16,6 +16,7 @@ import SampleImage from "@/components/lesson/sample_image.tsx";
 import folder_structure from "@/public/images/default-project-stucture-with-src-directory-and-without-src-directory.png";
 import top_level_folders from "@/public/images/top-level-folders-of-Next-15-project-with-src-directory-and-without-the-src-directory.png";
 import app_level_files from "@/public/images/default-files-in-the-app-directory-of-a-Next.js-15-project.png";
+import public_level_files from "@/public/images/default-files-in-the-public-directory-of-a-Next.js-15-project.png";
 import top_level_files from "@/public/images/top-level-files-of-Next-15-project.png";
 
 <Intro>
@@ -200,6 +201,14 @@ But first, let’s understand what each folder and file in the Next.js folder st
             page.tsx is the Typescript version of the page file. if you're not using Typescript, Next.js creates a page.jsx file instead
         </Info>
 
+    </MySection>
+
+    <MySection>
+        <h3>Files in the public folder</h3>
+
+        <SampleImage src={public_level_files} caption="The default files in the public directory of a Next.js 15 project" alt="Favicon.ico, globals.css, page.tsx, layout.tsx- the default files in the app directory of a Next.js 15 project"/>
+        
+        The files in this directory as seen in the image above are all svg files. They are used as icons in the default welcome page of your Next.js 15 project. 
     </MySection>
 
 <MySection>
