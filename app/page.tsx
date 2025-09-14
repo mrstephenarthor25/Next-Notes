@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 
+import boy_in_park from "@/public/note-small-bg.jpg";
+
 export const metadata :Metadata ={
   title: "Next.js Tutorial for beginners",
   description:"Learn Next.js using a step by step tutorial that would guide you as a beginner from the basics up to the advanced parts of Next.js. Helping you grow from a beginner to a Next.js Pro"
@@ -12,7 +14,20 @@ export default function Home() {
   return (
     <div className="relative grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
   
+  
+     
       <main id="start"className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+
+      <div className="h-[40vh] w-full shadow-sm rounded-lg px-3 py-3  relative lg:w-[40vw] ">
+    
+        <div className="h-full w-full  relative ">
+          <Image src={boy_in_park} fill={true} alt="" className="rounded-lg"/>
+
+        </div>
+    
+
+      </div>
+  
         <span className="">My <strong>Next.js tutorial</strong> Notes </span>
       <div>
         
@@ -33,7 +48,7 @@ export default function Home() {
       </div>
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <Link
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
+            className="rounded-lg border border-solid border-transparent transition-colors flex items-center justify-center bg-blue-600 text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
             href="/notes/What-is-Nextjs"
           >
             Start learning
