@@ -3,7 +3,7 @@ import { getAllContents } from "./_db/content";
 
 export default async function sitemap():Promise<MetadataRoute.Sitemap>{
 
-    const domain = "https:\\vercel.next-notes.app/";
+    const domain = "https://next-notes-eta.vercel.app/";
 
     //get all the pages 
     let contents = await getAllContents();
