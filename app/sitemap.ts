@@ -9,7 +9,7 @@ export default async function sitemap():Promise<MetadataRoute.Sitemap>{
     let contents = await getAllContents();
     let url =  contents.map( (content)=>{
         return {
-            url:`domain${content.slug}`,
+            url:`${domain}${content.slug}`,
             lastModified:new Date(),
             priority:1
         }
