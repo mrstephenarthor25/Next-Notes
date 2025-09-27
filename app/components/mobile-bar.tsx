@@ -1,3 +1,6 @@
+"use client";
+
+
 import { ReactNode, useState } from "react"
 import Link from "next/link";
 import { HomeIcon } from "lucide-react";
@@ -7,7 +10,7 @@ import { LucideMenu } from "lucide-react";
 export function MobileSideBar({aside_nodes,title,chapter}:{aside_nodes:ReactNode, title:string, chapter:number}){
 
     let [open, setOpen] = useState(false);
-
+    let nav_styles="bg-gray-500/50 h-full fixed bottom-0 flex flex-col justify-between left-0 right-0 transition-all transition-delay-500 rounded-md";
 
     return <div>
         <div className="px-3 py-2 md:hidden">
@@ -22,7 +25,7 @@ export function MobileSideBar({aside_nodes,title,chapter}:{aside_nodes:ReactNode
                 </div>}
         
         
-            {open == true && <div id="sidebar" className="bg-gray-500/50 h-full fixed bottom-0 flex flex-col justify-between left-0 right-0 transition-all transition-delay-500 rounded-md">
+            {<div id="sidebar" className={open==true? nav_styles:"hidden "+nav_styles}>
                 <div className="px-3 py-4 text-right">
                     <button id="closeBar"
                         onClick={_=>setOpen(false)}
