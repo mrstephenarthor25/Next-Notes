@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 import boy_in_park from "@/public/note-small-bg.jpg";
+import NoteList from "./note-list/page";
 
 export const metadata :Metadata ={
   title: "Next.js Tutorial for beginners",
@@ -46,14 +47,22 @@ export default function Home() {
         <p>I really hope this helps in taking you to the next level as a Next.js developer!.</p>
 
       </div>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <Link
-            className="rounded-lg border border-solid border-transparent transition-colors flex items-center justify-center bg-blue-600 text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="/notes/What-is-Nextjs"
-          >
-            Start learning
-          </Link>
-          </div>
+      
+      <div className="flex gap-4 items-center flex-col sm:flex-row">
+        <Link
+          className="rounded-lg border border-solid border-transparent transition-colors flex items-center justify-center bg-blue-600 text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
+          href="/notes/What-is-Nextjs"
+        >
+          Start learning
+        </Link>
+      </div>
+
+
+      {/* note lists */}
+
+      <NoteList/>
+      
+
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a

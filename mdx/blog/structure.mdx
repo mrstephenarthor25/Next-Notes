@@ -1,0 +1,260 @@
+import TerminalBLock from "@/components/lesson/terminal.tsx"
+import CodeBLock from "@/components/lesson/code.tsx"
+import MyH2 from "@/components/headings/H2.tsx"
+import MyH4 from "@/components/headings/H4.tsx"
+import Info from "@/components/lesson/info.tsx"
+import Pun from "@/components/lesson/pun.tsx"
+import Tip from "@/components/lesson/tip.tsx"
+import TextInImage from "@/components/lesson/image_text.tsx"
+import congrats_image from "@/public/congratulations.gif";
+import MySection from "@/components/lesson/section.tsx";
+import System from "@/components/lesson/system.tsx";
+import TypeScriptDesc from "@/components/lesson/typescript_button.tsx";
+import MYLink from "@/components/lesson/my_link.tsx";
+import Intro from "@/components/lesson/intro.tsx";
+import Link from "next/link";
+import SampleImage from "@/components/lesson/sample_image.tsx";
+import folder_structure from "@/public/images/default-project-stucture-with-src-directory-and-without-src-directory.png";
+import top_level_folders from "@/public/images/top-level-folders-of-Next-15-project-with-src-directory-and-without-the-src-directory.png";
+import app_level_files from "@/public/images/default-files-in-the-app-directory-of-a-Next.js-15-project.png";
+import public_level_files from "@/public/images/default-files-in-the-public-directory-of-a-next.js-15-project.png";
+import top_level_files from "@/public/images/top-level-files-of-Next-15-project.png";
+import private_folder from "@/public/images/next.js-project-private-folder.png";
+
+
+<Intro>
+
+In this lesson, you’ll learn about 
+-	The default Next.js 15 project folder structure using the App Router. 
+-	the difference between using the src folder and not using it in your Next.js project stucture
+-	What each default file and folder in the project structure does, and point out common mistakes to avoid.
+-   Best practices for your Next.js 15 project structure 
+
+If you would like a more brief description of the Next.js 15 project structure for beginners, you can check out <MYLink href="/notes/Next.js-project-Structure" text="this note"/>.
+Alright, having said that...lets's dive into this! 
+
+</Intro>
+
+<MySection>
+
+<MyH2>A Unique prompt</MyH2>
+
+When creating <MYLink  href="How-to-create-a-Next.js-app" text="a new Next.js project"/> , you would be asked several setup prompts. One of those prompts is:
+
+<TerminalBLock text="Would you like to use the src/ directory? (yes/no) "/>
+
+<br/><br/>
+If you answer "yes" to that prompt, your project will be structured as fig A in the image below. on the other hand, if you answer "no", your project would be structured like fig B.
+<br/> <br/>
+
+<SampleImage src={folder_structure} alt="default Next.js 15 project structure using the App Router- with and without the src directory" caption="default folder structure of a Next.js 15 project using the App Router- with and without the src directory"/>
+
+<br/><br/>
+
+What’s the difference? Which project structure should you use? <br/>
+Don’t worry— we’ll cover that shortly. 
+
+But first, let’s understand what each folder and file in the Next.js folder structure is used for.
+
+<Info>
+    The folder structure discussed in this lesson uses the App Router that was introduced in Next.js 13. Today, more than ever, this has become the recomended standard. Don’t worry if you don't know what the App router is, we'll talk about it in another lesson  
+    For now, let's understand what each key folder and file is used for.
+</Info>
+
+</MySection>
+
+<MySection>
+<MyH2>Next.js Project Files and Folders</MyH2>
+
+    <MySection>
+        <h3> Top level Folders</h3>
+
+        Top-level folders are located in the root directory of your Next.js project structure. <br/>
+        They organize your application’s code and static assets like images, fonts, and CSS.
+
+        <br/>
+
+        <SampleImage src={top_level_folders} alt="Top level folders of a Next.js 15 project (with and without the src directory )" caption={"Top level folders of a Next.js 15 project (with and without the src directory )"}/>
+
+        By default, the top-level folders are:
+        - .next folder
+        - node_modules folder
+        - app folder
+        - public folder
+        - src folder (optional)
+
+        <Info>
+            Did you notice that the .next and node_modules folder are not shown in the image of the top level folders above? we'll talk about those folders shortly, 
+        </Info>
+
+        #### App folder 
+        
+        The app folder is the core of your Next.js project. This folder holds your pages, layouts, templates and loading state UI (the user interface that is shown when component is still loading) and is used to determine which page is shown when users visit your Next.js app.
+        <Info>
+            In the older versions of Next.js, a separate pages folder was used to hold pages of your application. 
+            It’s still been used today, but it is recommended to use the App folder (from the new App Router) in the current Next.js 15. 
+        </Info>
+        #### public folder
+
+        The public folder stores static assets such as images, icons, and fonts. Files placed here are served directly from the root path. That been the case, you can simply access the files in the public folder by appending your domain with a "/" (foward slash) and the name of the file or folder you're trying to access.
+        Feel free to organize the public folder as your project needs, but avoid deeply nested folders. One level deep is best.
+        
+        #### .next folder
+
+        This is the build output folder generated when you run <code>next dev</code> or <code>next build</code>. 
+        This build is what is served to users who visit your Next.js app.
+
+        <Info>
+            This folder is not created when you first create your new Next.js project. Instead, it is automatically created when your run the project for the first time (either in development  or production mode ).
+            If deleted, Next.js will recreate it when you re-run the app.
+            Also, Next.js 15 automatically attempts to cache static versions of the pages of your application in the build folder, unless the page is one that needs to rendered dynamically (more on this in another article). 
+            Those pages that are rendered dynamically are not part of the build folder. 
+        </Info>
+
+        #### src folder (optional)
+
+        When you choose to use it in your Next.js project, your app folder and other source files inside it are placed inside the src folder for cleaner organization.
+        Basically, projects work the same with or without the src folder. Using it is simply a convention to keep your root directory tidy, especially for larger apps.
+
+        <Info>
+            The node_modules folder is also, part of the folder structure.
+            This folder is created automatically when you run npm install. 
+            It contains all the third-party libraries your project depends on. 
+        </Info>
+
+    </MySection>
+
+
+    <MySection>
+        <h3>Top level files</h3>
+        
+        These are the files in the root directory of your Next.js project.
+        These files help configure your app, manage dependencies, and define settings like imports, scripts, and environment variables.
+        
+        <SampleImage src={top_level_files} caption="The default top level files of a Next.js 15 project structure (excluding the .gitignore file)" alt="7 of the 8 default top level files of a Next.js 15 project (excluding the .gitignore file)"/>
+        #### eslint.config.mjs
+        This file is use to configure ESLint, a tool that checks your code for errors and makes sure you follow coding standards.
+        
+        #### next-env.d.ts
+        This is a special file that tells Typescript the types that Next.js provides. You don't need to edit this file, 
+        Next.js manages it for you.
+        
+        <Info>
+            This file is not tracked by git. Also, it is only created if you choose to use Typescript in your Next.js project. 
+        </Info>
+
+        #### package-lock.json
+        This file is used to keep track of the exact version of the third party libraries your project depends on (dependencies) and their sub-dependencies.
+        That way, if you or someone else installs this project later, you both get the same dependencies that were used in creating the project in the first place.
+
+
+        #### package.json
+        Keeps track of your dependencies and project scripts.
+        
+
+        #### postcss.config.mjs
+        This file is used to provide a plugin for processing your Tailwind css utility classes.
+        <Info>
+            The create-next-app tool adds this file automatically if you choose to use Tailwind css in your Next.js project during the project setup.
+        </Info>
+
+        #### next.config.ts
+        This file customizes your Next.js app. It can define redirects, enable experimental features, or adjust how images are handled.
+        It is a general rule of thumb to avoid copy-pasting configs from the internet without actually Knowing what it does to your project. 
+        <Info>  
+            If you choose not to use JavaScript in your Next.js project, the create-next-app tool would give you
+            the JavaScript equivalent of this file (next.config.js)
+        </Info>
+
+        #### Readme.md
+        This file is used to describe your project. By default, Next.js adds instructions on how to :
+        - run the development server (<code className="text-sm">npm run dev </code>)
+        - build the project (<code className="text-sm">npm run build</code>)
+        - start the production server (<code className="text-sm">npm start</code>)
+        - links to the Next.js docs
+
+        <Info>
+            Though the file is created by default, feel free to edit it.
+            The reason for the file is to help you describe your project in a way that would help 
+            you or anyone else understand what the project is about.
+        </Info>
+
+        #### tsconfig.json / jsconfig.json
+
+        Controls how imports and paths work in your project.
+        Both files are the same. The first (tsconfig.json) is the Typescript version. If you’re not using Typescript, Next.js generates jsconfig.json for JavaScript projects.
+
+        <Info>
+            When a new Next.js project is created, it is automatically initialized with git. With that, Next.js also includes a .gitignore file
+        </Info>
+    </MySection>
+
+    <MySection>
+        <h3>Files in the app folder</h3>
+
+        <SampleImage src={app_level_files} caption="The default files in the app directory of a Next.js 15 project" alt="Favicon.ico, globals.css, page.tsx, layout.tsx- the default files in the app directory of a Next.js 15 project"/>
+        #### favicon.ico file
+
+        The little icon of the website you see at the title bar for the page
+        #### globals.css file
+        
+        The general css file for your Next.js project. You can have others, but this is the default base css file.
+        
+        #### layout.tsx file
+        
+        The main layout for your Next.js app. This layout is used accross the entire application and should not be deleted. 
+        
+        <Info>
+            layout.tsx is the Typescript version of the layout file. if you're not using Typescript, Next.js creates a layout.jsx file instead
+        </Info>
+        
+        #### page.tsx file
+        
+        This file contains the content that is rendered in the browser when a user visits the root ("/") url of your Next.js app 
+        
+        <Info>
+            page.tsx is the Typescript version of the page file. if you're not using Typescript, Next.js creates a page.jsx file instead
+        </Info>
+
+        <Info>
+            Next.js as a framework has it's file conventions. If any of your folders, contained in the app directory has any of these files (page.tsx,layout.tsx and several others not added by default), the folder is automatically conidered to be route.
+        </Info>
+
+    </MySection>
+
+    <MySection>
+        <h3>Files in the public folder</h3>
+
+        <SampleImage src={public_level_files} caption="The default files in the public directory of a Next.js 15 project" alt="Favicon.ico, globals.css, page.tsx, layout.tsx- the default files in the app directory of a Next.js 15 project"/>
+        
+        The files in this directory as seen in the image above are all svg files. They are used as icons in the default welcome page of your Next.js 15 project. 
+    </MySection>
+
+
+    <MySection>
+
+        <h3>Private Folders</h3>
+
+        Private folders give you the opportunity to explicityly tell Next.js, "hey i don't want this folder to be treated as a route".
+        You can create a private folder within your app directory or outside of it- It’s up to you.
+        <br/>To make a folder a private folder, simply prepend an underscore('_'), to the folder name.
+        
+        <SampleImage src={private_folder} caption="a private folder '_lib' placed in the app directory of a next.js project structure" alt="a private folder '_lib' placed in the app directory of a next.js project structure"/>
+
+        Now, if you try to navigate to a private folder like you would a route folder with your browser, you would get a 404 - page not found error.
+        
+    </MySection>
+
+<MySection>
+    <MyH2>Best Practices For Maintaining your Next.js 15 project</MyH2>
+</MySection>
+
+
+<MySection>
+    <MyH2>Frequently asked questions</MyH2>
+</MySection>
+
+
+</MySection>
+
+
