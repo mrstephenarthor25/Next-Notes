@@ -2,7 +2,7 @@
 import { NoteArea } from "@/app/components/note_small_box_blog";
 import Link from "next/link";
 import { ReactNode} from "react" ;
-import { getAllBlogPosts, getBlogPost } from "@/app/_db/content";
+import { getAllBlogPosts, getBlogPost } from "@/app/_db/blog";
 import Pagination from "@/app/components/pagination";
 import { Metadata } from "next";
 import Footer from "@/app/components/footer";
