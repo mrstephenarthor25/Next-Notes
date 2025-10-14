@@ -5,6 +5,7 @@ import { Metadata } from "next";
 
 import boy_in_park from "@/public/note-small-bg.jpg";
 import NoteList from "./note-list/page";
+import BlogList from "./blog-list/page";
 
 export const metadata :Metadata ={
   title: "Next.js Tutorial for beginners",
@@ -15,8 +16,7 @@ export default function Home() {
   return (
     <div className="relative grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
   
-  
-     
+
       <main id="start"className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
 
       <div className="h-[40vh] w-full shadow-sm rounded-lg px-3 py-3  relative lg:w-[40vw] ">
@@ -60,7 +60,8 @@ export default function Home() {
 
       {/* note lists */}
 
-      <NoteList/>
+
+      <BlogList/>
       
 
       </main>

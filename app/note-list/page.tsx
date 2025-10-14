@@ -1,4 +1,5 @@
 import { contents } from "../_db/content";
+
 import ListCard from "../components/blog-card";
 
 export default function NoteList(){
