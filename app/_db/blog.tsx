@@ -21,10 +21,10 @@ type blog = {
 
 export const blogposts: blog[] =  [
     {
-        title:"Next.js 15 project Structure",
+        title:"Next.js 15 Project Structure Explained For Beginners",
         slug:"Next.js-project-Structure",
         page:"structure",
-        desc:"Learn about the Next.js 15 project stucture in a simple, beginner-friendly way. Understand what each default folder and file is used for, when to use the src directory and common mistakes to avoid in your Next.js projects",
+        desc:"New to Next.js? This beginner-friendly guide breaks down every default folder and file in a Next.js 15 project, explains routing and shows how to structure real projects step by step",
         reslove:()=>import("@/mdx/blog/structure.mdx"),
         faq:[{
             question:"Do I have to use the App Router in Next.js 15?",
