@@ -22,6 +22,13 @@ import top_level_files from "@/public/images/top-level-files-of-Next-15-project.
 import private_folder from "@/public/images/next.js-project-private-folder.png";
 import services_folder from "@/public/images/created-services-folder-in-app-directory.png";
 import page_file from "@/public/images/created-page.tsx-file-in-services-folder-in-app-directory.png";
+import solar_installaition_service from "@/public/images/create-solar-installaition-service-route.png";
+import rendered_solar_installaition_service from "@/public/images/rendered-solar-installation-service-page.png";
+import rendered_cctv_installaition_service from "@/public/images/rendered-cctv-installation-service-page.png";
+import rendered_services from "@/public/images/rendered-services-page.png";
+import cctv_installation_service from "@/public/images/cctv-installation-page.tsx-created.png"
+
+
 
 
 
@@ -31,7 +38,7 @@ import page_file from "@/public/images/created-page.tsx-file-in-services-folder-
 In this lesson, you’ll learn about 
 -	The default Next.js 15 project folder structure using the App Router. 
 -	the difference between using the src folder and not using it in your Next.js project stucture
--	What each default file and folder in the project structure does, and point out common mistakes to avoid.
+-	What each default file and folder in the project structure does, and common mistakes to avoid.
 -   Best practices for your Next.js 15 project structure 
 
 If you would like a more brief description of the Next.js 15 project structure for beginners, you can check out <MYLink href="/notes/Next.js-project-Structure" text="this note"/>.
@@ -58,10 +65,10 @@ If you answer "yes" to that prompt, your project will be structured as fig A in 
 What’s the difference? Which project structure should you use? <br/>
 Don’t worry— we’ll cover that shortly. 
 
-But first, let’s understand what each folder and file in the Next.js folder structure is used for.
+But first, let’s understand what each folder and file in the Next.js 15 folder structure is used for.
 
 <Info>
-    The folder structure discussed in this lesson uses the App Router that was introduced in Next.js 13. Today, more than ever, this has become the recomended standard. Don’t worry if you don't know what the App router is, we'll talk about it in another post.  
+    The Next.js folder structure discussed in this lesson uses the App Router that was introduced in Next.js 13. Today, more than ever, this has become the recomended standard. Don’t worry if you don't know what the App router is, we'll talk about it in another post.  
     For now, let's understand what each key folder and file in the default Next.js 15 project structure is used for.
 </Info>
 
@@ -243,17 +250,17 @@ But first, let’s understand what each folder and file in the Next.js folder st
 
     
 <MySection>
-    <MyH2>Routing in the Next.js app router</MyH2>
+    <MyH2>Next.js 15 project structure and routing</MyH2>
 
     Determining what page to be rendered for a specific url (routing) is done using the app folder of your Next.js project structure.
     Earlier, I mentioned when you visit the root route ("/") of your Next.js application using your browser, the default component exported in the page.tsx file contained in the app directory would be rendered. 
     
     It's time for us to talk a little bit more about that (routing).
 
-    <SampleImage src={app_level_files} caption="The page.tsx and layout.tsx, Favicon.ico, globals.css - the default files in the app directory of a Next.js 15 project" alt="Favicon.ico, globals.css, page.tsx, layout.tsx- the default files in the app directory of a Next.js 15 project"/>
+    <SampleImage src={app_level_files} caption="The page.tsx and layout.tsx, Favicon.ico, globals.css - the default files in the app directory of a Next.js 15 project structure" alt="Favicon.ico, globals.css, page.tsx, layout.tsx- the default files in the app directory of a Next.js 15 project"/>
 
-    Notice the layout.tsx file in the app directory as well?. As you might have guessed, the layout.tsx file contains the UI to be used as a layout (container or wrapper) for the page.tsx file. 
-    the layout is also a default exported component. For the root route ("/"), when the page.tsx file is rendered, the result (UI) is placed (sloted) inside the renderd UI of the layout.tsx file. 
+    Notice the layout.tsx file in the app directory as well?<br/> As you might have guessed, the layout.tsx file contains the UI to be used as a layout (container or wrapper) for the page.tsx file. 
+    The layout is also a default exported component. For the root route ("/"), when the page.tsx file is rendered, the result (UI) is placed (sloted) inside the rendered UI of the layout.tsx file. 
 
     <h3>How to create your own routes</h3>
 
@@ -266,29 +273,100 @@ But first, let’s understand what each folder and file in the Next.js folder st
 
     Alright, now that the requirements are clearly stated, let's create the routes in our app folder.
 
+    <Info>
+        for the example we're about to try, i'll encourage that you create a Next.js 15 project and actually try it out.  
+    </Info>
+
     <MyH4> Creating the Services page</MyH4>
 
-    - first, we'll create another folder called "services" in the app directory.
+    - First, we'll create another folder called "services" in the app directory of our sample Next.js project.
         <SampleImage src={services_folder} alt="services folder (route) in the app directory of a Next.js 15 project structure using the App Router" caption="create a services folder in the app directory"/>
     
-    - secondly, create a page.tsx file inside the just created services directory
+    - Secondly, create a page.tsx file inside the just created services directory
         <SampleImage src={page_file} alt="page.tsx file in the services folder (route) contained in the app directory of a Next.js 15 project structure (App Router)" caption="create a page.tsx file in the just created services folder"/>
-        After adding the page.tsx file, this folder (services) automatically becomes a route ("/services").
+        After adding the page.tsx file, this folder (services) automatically becomes a route. How do we visit this route?, visit the url below 
 
-    - create a functional component to be renderd, in the page.tsx file
-    <CodeBLock  title="functional component for the page.tsx file in the services folder" lang="Typescript">
-    export default function Page() &#123;
-        return &lt;h1&gt; This is the general services page&lt;/h1&gt; 
-    &#123;
+        <TerminalBLock text="http://localhost:3000/services"/>
+
+         <Info>
+            - if you visit the URL now though, you'll get an error because the page.tsx file doesn't render any markup. We'll fix that shortly.
+            - The port used in my development environment is port 3000, yours may be different. If that's the case, 
+            please use the correct port number in the url above in place of 3000
+        </Info>
+
+    - Create a functional component to be rendered in the page.tsx file
+
+    <CodeBLock  title="component for page.tsx file in the services folder" lang="tsx">
+        export default function Page() &#123;
+            return &lt;h1&gt; This is the general services page&lt;/h1&gt; 
+        &#123;
     </CodeBLock>
 
-    - Now, we have the page to be renderd when the "/services" route is visited.
+    - Now, we have the page to be rendered when the "/services" route is visited.
 
+    <SampleImage src={rendered_services} alt="rendered /services route in a Next.js 15 project" caption="rendered /services route of our sample Next.js 15 project "  />
 
-     <MyH4> Creating the Solar installation page</MyH4>
+<MyH4>Creating the solar installation service route </MyH4>
 
-     - inside the services folder, create another folder called "solar-installation".
-     
+    Remember this page is meant to give more details about the solar installation service and should be accessible using the route 
+    <TerminalBLock text="http://localhost:3000/services/solar-installation"/>
+    <br/>
+    Earlier, to create the /services route, we had to create a "services" folder in the app directory and a page.tsx file in the folder.<br/>
+    To create a sub-route under "/services" ("/services/solar-installation"), we have to 
+        - create a sub-folder called "solar-installation" inside the services directory 
+        - give the solar-installation folder it's own page.tsx file
+
+        <SampleImage src={solar_installaition_service} alt="created solar-installation folder in the services directory of a sample Next.js 15 project structure" caption="create the services folder and it's page.tsx file in your sample Next.js 15 project"/>
+
+        - create the default component to be exported in the page.tsx file
+         <CodeBLock  title="solar-installtion folder page.tsx component" lang="tsx">    
+            export default function Page() &#123;
+                return &lt;h1&gt; This is the solar installation service page&lt;/h1&gt; 
+            &#123;
+        </CodeBLock>
+
+        - Now you can visit the url 
+         <TerminalBLock text="http://localhost:3000/services/solar-installation"/>
+         <br/>
+
+         <SampleImage src={rendered_solar_installaition_service} alt="rendered view of the services/solar-installation route in a sample Next.js 15 project" caption="rendered view of the services/solar-installation route in our sample Next.js 15 project"/>
+         
+    <MyH4>Creating the CCTV installation service route </MyH4>
+
+    I hope you can already see that, creating the route for the CCTV installaition service, is just the same as 
+    creating the route for the solar installation service.
+
+    - create the cctv-installation folder in the services directory
+    - create the pages.tsx file for the just created cctv-installation folder (directory)
+    <SampleImage src={cctv_installation_service} alt="created cctv-installation folder and page.tsx file in sample Next.js 15 project structure" caption="create cctv-installation folder and it's page.tsx file in our sample Next.js 15 project"/>
+
+    - add the default component to be rendered for the just created page.tsx file
+
+         <CodeBLock  title="solar-installtion folder page.tsx component" lang="tsx">
+            export default function Page() &#123;
+                return &lt;h1&gt; This is the cctv installation service page&lt;/h1&gt; 
+            &#123;
+        </CodeBLock>
+
+    - Then visit the route using the url
+
+        <TerminalBLock text="http://localhost:3000/services/cctv-installation"/>
+
+        <SampleImage src={rendered_cctv_installaition_service} alt="rendered url services/cctv-installaition of a Next.js 15 project" caption="rendered result for the services/cctv-installation route for our sample Next.js 15 project"/>
+
+        <Info>
+            - The port used in my development environment is port 3000, yours may be different. If that's the case, 
+                please use the correct port number in the url above in place of 3000
+            - Notice that url structure follows the folder structure in our sample Next.js 15 project (services/cctv-installation)
+            - The folder is automatically treated as a route when you add a page.tsx (or page.jsx if you're not using Typescript) file in the directory.
+        </Info>
+
+        And with that, we have a simple Next.js 15 project, that renders a custom view for 3 specific routes...
+
+        <TerminalBLock text="http://localhost:3000/services"/> 
+        <TerminalBLock text="http://localhost:3000/services/solar-installation"/> 
+        <TerminalBLock text="http://localhost:3000/services/cctv-installation"/> 
+
 </MySection>
 
     <MySection>
@@ -296,21 +374,16 @@ But first, let’s understand what each folder and file in the Next.js folder st
         <h3>Private Folders</h3>
 
         Private folders give you the opportunity to explicitly tell Next.js, "hey, I don't want this folder to be treated as a route"- and of course, Next.js listens!.
-        You can create a private folder within your app directory or outside of it- It’s up to you.
         <br/>To make a folder a private folder, simply prepend an underscore('_'), to the folder name.
         
-        <SampleImage src={private_folder} caption="a private folder '_lib' placed in the app directory of a next.js project structure" alt="a private folder '_lib' placed in the app directory of a next.js project structure"/>
+        <SampleImage src={private_folder} caption="a private folder '_lib' placed in the app directory of a next.js 15 project structure" alt="a private folder '_lib' placed in the app directory of a next.js 15 project structure"/>
 
         Now, if you try to navigate to a private folder like you would a route folder with your browser, you would get a 404 - page not found error.
         
     </MySection>
-
-
 <MySection>
-    <MyH2>Route Groups</MyH2>
+    ## Route Groups
     While this blogpost is not about routing, it's tempting to talk about Route groups (at least briefly) because it's one of the many features in Next.js that is made possible by means of the Next.js Folder structure. 
-
-    
     
 </MySection>
 
@@ -320,7 +393,7 @@ But first, let’s understand what each folder and file in the Next.js folder st
     <MyH2>Frequently asked questions</MyH2>
 
     <section>
-        <h3>Do I have to use the App Router in Next.js 15?</h3>
+        ### Do I have to use the App Router in Next.js 15?
         No - You don't have to use the App Router in your Next.js 15 project. <br/>
             The Pages Router is still supported, but the App Router is the modern default and it gives you
             newer features like nested layouts, server components and streaming, e.t.c
@@ -328,17 +401,22 @@ But first, let’s understand what each folder and file in the Next.js folder st
     </section>
 
     <section>
-        <h3>Where should static assets be placed?</h3>
+        ### Where should static assets be placed?
             static assests like images, fonts, and icons are stored in the public directory of your Next.js project structure. Files in this directory are
             served from the root path.
     </section>
 
     <section>
-        <h3>How does routing work with the app directory?</h3>
+        ### How does routing work with the app directory?
             The page.tsx(or page.jsx if you're not using Typescript in your Next.js project) file in the app directory is the Ui component that is rendered when the "/" route is visited on your browser. To create other routes, you'll need to create another folder in the app directory with it's corresponding page.tsx (or page.jsx if you're not using Typescript) containing it's own UI component to be rendered.
             As an example, let's say you create a folder called notes in the app directory. The notes folder also has its page.tsx file. To visit that route in your browser, you need to enter the url "/notes".  
     </section>
 </MySection>
+
+### There's more to this
+
+I'll keep updating this post as much as needed. For the time been. i'll stop here.
+Thank you and see you soon
 
 
 </MySection>
