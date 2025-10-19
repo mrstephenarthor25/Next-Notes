@@ -8,6 +8,7 @@ type FaqEntry = {
 type blog = {
     title:string,
     slug:string,
+    pageTitle?:string,
     page:string,
     desc?:string,
     reslove: ()=>Promise<{default:React.ComponentType<any>}>,
@@ -22,7 +23,7 @@ type blog = {
 export const blogposts: blog[] =  [
     {
         title:"Next.js 15 Folder Structure Explained For Beginners",
-        slug:"Next.js-folder-Structure",
+        slug:"Next.js-15-Folder-Structure-Explained-For-Beginners",
         page:"structure",
         desc:"New to Next.js? This beginner-friendly guide breaks down every default folder and file in a Next.js 15 project, explains routing and shows how to structure real projects step by step",
         reslove:()=>import("@/mdx/blog/structure.mdx"),
