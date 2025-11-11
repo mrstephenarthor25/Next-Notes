@@ -1,0 +1,120 @@
+import TerminalBLock from "@/components/lesson/terminal.tsx"
+import CodeBLock from "@/components/lesson/code.tsx"
+import MyH2 from "@/components/headings/H2.tsx"
+import Info from "@/components/lesson/info.tsx"
+import Pun from "@/components/lesson/pun.tsx"
+import Tip from "@/components/lesson/tip.tsx"
+import TextInImage from "@/components/lesson/image_text.tsx"
+import congrats_image from "@/public/congratulations.gif";
+import MySection from "@/components/lesson/section.tsx";
+import System from "@/components/lesson/system.tsx";
+import TypeScriptDesc from "@/components/lesson/typescript_button.tsx";
+import SampleImage from "@/components/lesson/sample_image.tsx";
+import server_started_img from "@/public/images/Nextjs-application-server-started.png";
+import default_page from "@/public/images/default-page-of-a-newly-created-Next.js-15-project.png";
+
+
+
+<MySection>
+Now that you understand what Next.js is and why it's needed, let's see how to 
+create a Next.Js app.
+
+While a Next.Js app can be created manually, the easiest and recommended way is to use a 
+tool called <em>create-next-app</em>.<br/>This tool sets up everything for you so you don't have to worry about manual configurations.  Instead, you can  start coding almost immediately!
+</MySection>
+
+<MySection>
+<MyH2>Installation</MyH2>
+
+Before you create your Next.Js app, let's make sure your device meets the system requirements.
+To be able to create a Next.js app using the latest version of Next.Js, you'll need:
+
++ Node version 18.18 or newer
++ Windows, Linux or MacOs operating System.
+
+<System button_text="Check my device">
+    <small className="block">Software check</small>
+</System>
+</MySection>
+
+<MySection>
+
+<MyH2>Let's Create your Next.JS app</MyH2>
+
++ open your terminal and run the command (Ps: internet connection is required):
+<TerminalBLock text={"npx create-next-app@latest"}/>
+
+<Tip>
+    npx comes with Node.js so no extra installation needed
+</Tip>
+
++ You would be asked the following questions to proceed with the installation:
+
+<CodeBLock lang="bash" title="Create-next-app prompts" >
+    What is your project named? #enter name of project without space
+    Would you like to use Typescript? (Yes/No) #yes
+    Would you like to use Eslint? (Yes/No) #yes
+    Would you like to use Tailwind CSS? (Yes/No) #yes
+    Would you like to use src/ directory? (Yes/No) #No
+    Would you like to use App Router? (Yes/No) #yes
+    Would you like to customize the default import alias(@/*)? (Yes/No) #yes
+</CodeBLock>
+
+<Tip>
+    + As a React developer, there is a very high chance you already know
+    what each prompt is refering to. 
+    If there's any prompt asked that you're not sure of, most likely that would be 
+    <em>"Would you like to use App Router?"</em> <br/>
+    Please choose "yes" for now, we'll talk about it later. so don't worry if it doesn't make sense now.
+
+    + These lessons use a little Typescript. if you're not familiar, don't worry i'll give quick explanations along the way- just click on the <TypeScriptDesc/> button to view the explanation.
+</Tip>
+
+Once the installation is complete:
+
+<CodeBLock title="Move into to the Nextjs app directory" lang="bash">
+    cd [my-app-name]
+</CodeBLock>
+<br/>
+Replace <em>[my-app-name]</em> with the name of your project.
+
+Finally:
+<CodeBLock title="Start the development server" lang="bash">
+    npm run dev
+</CodeBLock>
+<SampleImage src={server_started_img} alt="successfully started the development server for the Next.js project" caption="successfully started the development server for the Next.js project using the command 'npm run dev'"/>
+
+<br/>
+<br/>
+After starting the server, you can open your Next.js App on <br/>
+http://localhost:3000/ (copy and paste the url in your browser)
+<br/>
+<br/>
+
+After opening the url (http://localhost:3000/) on your browser, you should see the following output:
+
+<SampleImage src={default_page} alt="default page of a newly created Next.js 15 project" caption="The default page of a newly created Next.js 15 project"/>
+
+And that's it..
+
+<TextInImage src={congrats_image} alt="Congratulations on creating your Next.js app" text={"Congratulations on creating your Next.js application"}/>
+
+</MySection>
+
+<MySection>
+
+<MyH2>Summary</MyH2>
+
+You've successfully created you Next.js app.<br/>
+
++ You saw how the create-next-app tool guided you through the process
++ You selected options like App Router and Typescript (don't worry if these are new, we'll talk about them later )
++ You've successfully started your Next.js app locally
++ Well done!
+
+Think of this as building a house. You've set the foundation. From here, we can start shaping this into something amazing.
+<br/>
+
+Next, let's understand the project structure of your just created Next.js app.
+
+</MySection>

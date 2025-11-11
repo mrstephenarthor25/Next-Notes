@@ -1,0 +1,89 @@
+import TerminalBLock from "@/components/lesson/terminal.tsx"
+import CodeBLock from "@/components/lesson/code.tsx"
+import MyH2 from "@/components/headings/H2.tsx"
+import Info from "@/components/lesson/info.tsx"
+import Pun from "@/components/lesson/pun.tsx"
+import Tip from "@/components/lesson/tip.tsx"
+import TextInImage from "@/components/lesson/image_text.tsx"
+import congrats_image from "@/public/congratulations.gif";
+import MySection from "@/components/lesson/section.tsx";
+import System from "@/components/lesson/system.tsx";
+import Intro from "@/components/lesson/intro.tsx";
+import TypeScriptDesc from "@/components/lesson/typescript_button.tsx";
+import SampleImage from "@/components/lesson/sample_image.tsx";
+import server_started_img from "@/public/images/Nextjs-application-server-started.png";
+import default_page from "@/public/images/default-page-of-a-newly-created-Next.js-15-project.png";
+import MYLink from "@/components/lesson/my_link.tsx";
+
+
+<Intro>
+
+In this lesson, you’ll learn about: 
+-	What Routing is. 
+-	How Next.js 15 handles routing
+</Intro>
+
+
+
+<MySection>
+
+<MyH2>WHat is Routing?</MyH2>
+Routing is the process of figuring out what resource to return when a given url is visited. This process is normally done on the server.
+The software that carries out this process is called a Router.
+<br/>
+
+<Info>
+    Frameworks like React and Vue handle routing on the browser (client-side)
+</Info>
+
+### How does Routing work?
+
+While different Frameworks handle Routing a little bit differently, the basic pattern remains the same.
+- You visit a url
+- The Router checks the url and other details in the request to know the right resource to return to the client (for example your browser)
+- If all parameters including the url are valid it returns the appropriate resource or an appropriate error message (for example a "not found" page)
+
+#### Let's see an example
+
+Let's say you want to visit your favourite website. You might visit the url below 
+<TerminalBLock text="localhost:3000/myfavouritesite.com/"/>
+
+<br/> [picture of visiting the url on the browser]
+
+The url would return the Homepage of your favourite website 
+<br/> [picture of homepage]
+
+If, your favourite website is a one where you can stream music, you might want to see all the trending songs of the week.
+To do that, you have to visit the url
+<TerminalBLock text="localhost:3000/myfavouritesite.com/trending"/>
+
+In, this case the router scans the url and returns the page where you see all the trending songs for the week.
+[picture of page showing trending songs for the week]
+
+While trying to visit the page to see the trending song, you might end up typing the wrong url, maybe you spelled "trending" but without the "n" as in the url below
+<TerminalBLock text="localhost:3000/myfavouritesite.com/treding"/>
+
+Now, the router checks the url, it discovers there's no such Url in its registry so it returns a not found page.
+
+That's it, a very basic description of how routing works!.
+
+<Info>
+    The "resource" returned after a request could be an HTML page like in the example above, a downloadable file
+    audio, video, JSON, or even XML and many more formats.
+</Info>
+
+
+<MyH2>Routing in Next.js 15</MyH2>
+
+Next.js uses it's folder structure for routing. The router is automatically built into the folder structure when you 
+create <MYLink href="How-to-create-a-Next.js-app" text="a new Next.js project"/>. 
+Also, Next.js 15 has 2 different types of routers- the App router and the Pages router.
+
+<Info>
+    when creating a new next.js 15 project, you would be asked the following prompt along the line 
+    <TerminalBLock text="Do you want to use the App Router(recommended)? #yes/no"/>.
+    At this point, if you answer "yes", the App Router would be built into your Next.js 15 project. If you select "No", it would be
+    built using the older Pages router
+</Info>
+
+</MySection>

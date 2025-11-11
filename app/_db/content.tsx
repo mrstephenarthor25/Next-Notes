@@ -12,6 +12,7 @@ type content = {
     reslove: ()=>Promise<{default:React.ComponentType<any>}>,
     faq?: FaqEntry[],
     publish?:boolean,
+    category?:string
 
 }
 
@@ -28,39 +29,13 @@ type blog = {
 
 // notes content
 export const contents: content[] = [
-    // {
-    //     title:"A brief review of the internet and websites",
-    //     slug:"A-brief-review-of-the-internet-and-websites",
-    //     page:"internet",
-    //     reslove:()=>import("@/mdx/internet.mdx"),
-    //     desc:"What is a website? This is a brief overview of websites, and frameworks. This overview starts from the dev",
-    //     publish:true
-    // },
-
-    // {
-    //     title:"A brief review of React",
-    //     slug:"A-brief-review-of-React",
-    //     page:"react",
-    //     reslove:()=>import("@/mdx/react.mdx"),
-    //     desc:"What is the react framework? This is a brief overview of websites, and frameworks. This overview starts from the dev",
-    //     publish:true
-    // },
-
-
-    // {
-    //     title:"The internet",
-    //     slug:"The-internet",
-    //     page:"internet",
-    //     desc:"Description",
-    //     publish:true
-    // },
-
     {
+        category:"Getting Started",
         title:"What is Next.js?",
         slug:"What-is-Nextjs",
         page:"What_is_Nextjs",
         desc:"What is Next.js? This beginner-friendly guide shows what it is, why it matters, and how it extends React—making fast, SEO-friendly apps easy to build",
-        reslove:()=>import("@/mdx/What_is_Nextjs.mdx"),
+        reslove:()=>import("@/mdx/notes/What_is_Nextjs.mdx"),
         faq:[
            {
             question:"What is Next.js?",
@@ -76,27 +51,35 @@ export const contents: content[] = [
     },
 
     {
+        category:"Getting Started",
         title:"How to create a Next.js app",
         slug:"How-to-create-a-Next.js-app",
         page:"create",
         desc:"Learn how to create a Next.js app with this beginner-friendly guide. This 5-step walkthrough is designed to make your Next.js learning journey simple and clear.",
-        reslove:()=>import("@/mdx/create.mdx"),
+        reslove:()=>import("@/mdx/notes/create.mdx"),
     },
 
     {
+        category:"Getting Started",
         title:"Next.js 15 project Structure",
         slug:"Next.js-project-Structure",
         page:"structure",
         desc:"Learn about the Next.js 15 project stucture in a simple, beginner-friendly way. Understand what each default folder and file is used for, when to use the src directory and common mistakes to avoid in your Next.js projects",
-        reslove:()=>import("@/mdx/structure.mdx"),
+        reslove:()=>import("@/mdx/notes/structure.mdx"),
     },
 
+    {
+        title:"Routing in Next.js 15",
+        slug:"Routing-in-Next.js-15",
+        page:"routing",
+        reslove:()=>import("@/mdx/notes/routing_intro.mdx")
+    },
 
     {
         title:"Did you like the notes?",
         slug:"Did-you-like-the-notes",
         page:"learn_more",
-        reslove:()=>import("@/mdx/learn_more.mdx")
+        reslove:()=>import("@/mdx/notes/learn_more.mdx")
     },
     
 ]
