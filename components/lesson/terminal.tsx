@@ -2,6 +2,7 @@ import { Copy } from "lucide-react";
 import { TerminalSquare } from "lucide-react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
+
 export default function TerminalBLock({text}:{text:string}){
 
 

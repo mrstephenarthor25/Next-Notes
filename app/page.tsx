@@ -2,10 +2,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
-
 import boy_in_park from "@/public/note-small-bg.jpg";
-import NoteList from "./note-list/page";
-import BlogList from "./blog-list/page";
+import LessonCardContainer from "./components/lessons-card-container";
+import { ImLinkedin, ImTwitter } from "react-icons/im";
+import RecentCardContainer from "./components/recent-post-container";
+
 
 export const metadata :Metadata ={
   title: "Next.js Tutorial for beginners",
@@ -13,60 +14,48 @@ export const metadata :Metadata ={
 }
 
 export default function Home() {
-  return (
-    <div className="relative grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-  
+  return ( <>
 
-      <main id="start"className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <header className="min-h-[70vh] rounded-lg relative  items-end flex items-center w-full md:w-[80%] md:items-center md:mx-[10%] md:px-9">
+          <Image src={boy_in_park} fill={true} alt="" className="rounded-lg -z-50"/>
 
-      <div className="h-[40vh] w-full shadow-sm rounded-lg px-3 py-3  relative lg:w-[40vw] ">
-    
-        <div className="h-full w-full  relative ">
-          <Image src={boy_in_park} fill={true} alt="" className="rounded-lg"/>
+          <div className="z-5 text-white w-full  py-3 px-9 bg-gray-900/50 min-h-[50vh] md:w-[60%] md:h-max ">
+              <span>My <strong>Next.js tutorial</strong> Notes </span>
+              <h1 className="text-lg text-[40px] my-2">A step by step Next.Js tutorial made for beginners</h1>
+               <p className="hidden w-full text-[20px] text-white lg:w-[60%] md:block">Hello, i'm Stephen. I chose to create this beginner-friendly tutorial as a step by step process to learn Next.js 
+                and other technologies that are commonly used within the Next.js ecosystem.
+                I really hope this helps in taking you to the next level as a Next.js developer!.
+                </p>
+                 <Link className="border border-solid px-3 py-3 w-max rounded-full transition-colors flex items-center text-background " href="/notes/What-is-Nextjs">
+                    Start learning
+                 </Link>
+          </div>
 
+    </header>
+
+    <main className=" w-full">
+      <section className="min-h-[60vh]">
+         <p className="text-[20px] text-gray-500 text-justify px-5 py-3 md:hidden">
+          Hello, i'm Stephen. I chose to create this beginner-friendly tutorial as a step by step process to learn Next.js 
+          and other technologies that are commonly used within the Next.js ecosystem.
+          I really hope this helps in taking you to the next level as a Next.js developer!.
+            </p>
+        <LessonCardContainer/>
+        <RecentCardContainer/>
+      </section>
+    </main>
+      
+      
+      <footer className="items-center justify-between bg-black rounded-lg w-full  mt-5 md:flex md:mx-[10%] md:w-[80%]">
+
+        <div className="flex-1 pl-3 text-white">
+            <h2 className="text-[30px] mb-3">Learn Next.js step by step</h2>
+            <p className="text-sm text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <ImTwitter className="inline-block mr-5"/>
+            <ImLinkedin className="inline-block"/>
         </div>
-    
-
-      </div>
-  
-        <span className="">My <strong>Next.js tutorial</strong> Notes </span>
-      <div>
-        
-        <h1 className="text-lg text-[40px]">A step by step Next.Js tutorial made for beginners</h1>
-
-        <em className="block font-italic mb-5 text-gray-700">From a learner...</em>
-
-        <p className="w-full lg:w-[60%]">Hello, i'm Stephen. I chose to create this beginner-friendly tutorial as a step by step process to learn Next.js 
-        and other technologies that are commonly used within the Next.js ecosystem.
-        Using this Next.js tutorial, I aim to document my learing process while also helping beginners like myself learn Next.js step by step, using words that
-        are easy to understand, beginner-friendly illustrations that teach technical concepts clearly, and lessons that are easy to follow along with.
-        <br/>
-        Basically, the lessons are designed in a way that I would have loved to learn Next.js if I had to start over again.
-        </p>
-
-        <p>I really hope this helps in taking you to the next level as a Next.js developer!.</p>
-
-      </div>
-      
-      <div className="flex gap-4 items-center flex-col sm:flex-row">
-        <Link
-          className="rounded-lg border border-solid border-transparent transition-colors flex items-center justify-center bg-blue-600 text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-          href="/notes/What-is-Nextjs"
-        >
-          Start learning
-        </Link>
-      </div>
-
-
-      {/* note lists */}
-
-
-      <BlogList/>
-      
-
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
+        <div className="flex-1 px-3 mt-3 items-center justify-between text-white md:mt-0 md:px-9 md:flex">
+            <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
           target="_blank"
@@ -111,7 +100,7 @@ export default function Home() {
           />
           Go to nextjs.org →
         </a>
+        </div>
       </footer>
-    </div>
-  );
+  </>);
 }
