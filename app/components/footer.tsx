@@ -5,20 +5,20 @@ import { CopyIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useState,useEffect } from "react";
 
-export default function Footer({placeholder}:{placeholder:string}){
+export default function Footer(){
 
     let pathName = usePathname();
     const currentUrl = typeof window !== "undefined" ?  `${window.location.origin}${pathName}`:'';
 
-     let [copy, setCopy] = useState(false);
+     const [copy, setCopy] = useState(false);
         
-        let addToClipBoard = ()=>{
+        const addToClipBoard = ()=>{
             navigator.clipboard.writeText(currentUrl)
             .then(()=>{
                 setCopy(true);
             })
-            .catch(err=>{
-                alert("Sorry: Faild to copy")
+            .catch(_=>{
+                alert("Sorry: Failed to copy")
             })
         }
     

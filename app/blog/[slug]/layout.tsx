@@ -7,6 +7,7 @@ import Pagination from "@/app/components/pagination";
 import { Metadata } from "next";
 import Footer from "@/app/components/footer";
 import { MobileBlogSideBar } from "@/app/components/mobile-nav-blog";
+import { url } from "@/components/globals";
 
 
 type urlProp = {
@@ -37,7 +38,8 @@ export default async function BlogLayout({children,params}:prop){
     //check if content as structured_data
     const setParam = await params; 
     const schema = await getBlogPost( setParam.slug);
-    let mainEntity,jsonLd;
+    let mainEntity,blogSchema;
+    
     mainEntity = null;
 
     if(schema !== null && schema.faq !== undefined){
@@ -53,9 +55,31 @@ export default async function BlogLayout({children,params}:prop){
             }
         }
         });
+
+        blogSchema = {
+            '@context': "https://schema.org",
+            '@type':"BlogPosting",
+            'headline':schema.title,
+            'image':'',
+            'author':{
+                "@type":"Person",
+                "name":"Arthor Stephen"
+            },
+            'publisher':{
+                '@type':"Organization",
+                'name':"WebDevBySteve",
+                'logo':{
+                    '@type':'ImageObject',
+                    'url':`${url}favicon.ico`
+                }
+            },
+            'datePublished':schema.published,
+            'dateModified':schema.modified
+        }
+        
     }
     
-    jsonLd = {
+    const jsonLd = {
         '@context': "https://schema.org",
         '@type':"FAQpage",
         "mainEntity":mainEntity
@@ -99,7 +123,20 @@ export default async function BlogLayout({children,params}:prop){
             dangerouslySetInnerHTML={{
                 __html:JSON.stringify(jsonLd).replace(/</g,'\\u003c')
             }}
-            />}
+            />
+        }
+
+        { mainEntity && <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML = {{
+                    __html:JSON.stringify(blogSchema).replace(/</g,'\\u003c')
+                }}
+            >
+
+            </script>
+        }
+
+        
             
         <section className="h-full flex bg-white ">
             <aside className="flex flex-col justify-between -translate-x-full absolute top-0 bottom-0 px-3 py-4 bg-slate-50 basis-[10%] md:translate-none">

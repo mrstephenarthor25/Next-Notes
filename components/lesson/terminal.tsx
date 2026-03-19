@@ -6,11 +6,6 @@ import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 export default function TerminalBLock({text}:{text:string}){
 
 
-    let addToClipBoard = ()=>{
-
-        console.log("added to clickboard ",text);
-    }
-
     return <div className="px-1 mt-3 mb-5 md:px-3">
                 <div className="border border-solid rounded-sm ">
                             <div className=" bg-gray-50 px-3 py-2 border-b border-solid flex items-center justify-between text-sm"> 

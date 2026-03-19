@@ -16,17 +16,6 @@ type content = {
 
 }
 
-type blog = {
-    title:string,
-    slug:string,
-    page:string,
-    desc?:string,
-    reslove: ()=>Promise<{default:React.ComponentType<any>}>,
-    faq?: FaqEntry[],
-    publish?:boolean,
-
-}
-
 // notes content
 export const contents: content[] = [
     {
@@ -90,7 +79,7 @@ export const contents: content[] = [
 
 export async function getContent(slug:string){
 
-    let content = contents.find((entry)=>{
+    const content = contents.find((entry)=>{
 
         if(entry.slug.toLocaleLowerCase() == slug.toLocaleLowerCase()){
 
@@ -108,7 +97,7 @@ export async function getContent(slug:string){
 
 export async function getBlogPost(slug:string){
 
-    let content = blogposts.find((entry)=>{
+    const content = blogposts.find((entry)=>{
 
         if(entry.slug.toLocaleLowerCase() == slug.toLocaleLowerCase()){
 

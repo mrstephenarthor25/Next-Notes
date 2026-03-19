@@ -1,4 +1,4 @@
-export default function SmallInfoBox({flag,question,answer}:{flag:boolean,question:string,answer:string}){
+export default function SmallInfoBox({question,answer}:{flag:boolean,question:string,answer:string}){
 
     return <div className="px-3">
 

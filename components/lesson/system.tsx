@@ -1,12 +1,12 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode} from "react";
 import { ComputerIcon } from "lucide-react";
 import check_device from "@/app/actions/system";
 import Check from "@/app/components/system_check";
 
 
-export default async function System({children,button_text}:{children:ReactNode, button_text:string}){
+export default async function System({children}:{children:ReactNode}){
 
-    let result = await check_device() ;
+    const result = await check_device() ;
     
 // result == true? setSuccess(true):setFail(true);
 

@@ -3,8 +3,8 @@ import { recent } from "../_db/lessons"
 
 export default function RecentCardContainer(){
 
-    let lessons_card_collection = recent.map((lesson,index)=>{
-        return <RecentCard title={lesson.title} desc={lesson.desc} url={lesson.url} key={index}/>
+    const lessons_card_collection = recent.map((lesson,index)=>{
+        return <RecentCard title={lesson.title} desc={lesson.desc} url={lesson.url} date={lesson.date}key={index}/>
     })
     
     return<>

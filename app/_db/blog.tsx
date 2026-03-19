@@ -14,6 +14,8 @@ type blog = {
     reslove: ()=>Promise<{default:React.ComponentType<any>}>,
     faq?: FaqEntry[],
     publish?:boolean,
+    published:string,
+    modified:string
 
 }
 
@@ -38,9 +40,12 @@ export const blogposts: blog[] =  [
         {
             question:"How does routing work with the app directory",
             expectedAnswer:"The page.tsx(or page.jsx if you're not using Typescript in your Next.js project) file in the app directory is the Ui component that is rendered when the '/' route is visited on your browser. To create other routes, you'll need to create another folder in the app directory with it's corresponding page.tsx (or page.jsx if you're not using Typescript) containing it's own UI component to be rendered. As an example, let's say you create a folder called notes in the app directory. The notes folder also has its page.tsx file. To visit that route in your browser, you need to enter the url '/notes'"
-        }
+        },
+        
 
-    ]
+    ],
+    published:"2025-11-02",
+    modified:"2026-03-19"
     },
 
 ]

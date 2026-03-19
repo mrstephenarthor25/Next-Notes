@@ -13,7 +13,7 @@ export default function Check({result}:{result:{status:boolean, errors?:string[]
         {result.status == false && 
         <div className="text-center">
             <XCircle className="inline-block text-red-500"/>
-            <p>Oops, your device isn't set up to create a Next.js app using the latest version of Next.js yet</p>
+            <p>Oops, your device isn&apos;t set up to create a Next.js app using the latest version of Next.js yet</p>
 
             <small >
                  <em>At least Node v18.17 required</em>

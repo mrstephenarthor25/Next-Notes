@@ -11,6 +11,7 @@ import RecentCardContainer from "./components/recent-post-container";
 export const metadata :Metadata ={
   title: "Next.js Tutorial for beginners",
   description:"Learn Next.js using a step by step tutorial that would guide you as a beginner from the basics up to the advanced parts of Next.js. Helping you grow from a beginner to a Next.js Pro"
+  
 }
 
 export default function Home() {
@@ -22,7 +23,7 @@ export default function Home() {
           <div className="z-5 text-white w-full  py-3 px-9 bg-gray-900/50 min-h-[50vh] md:w-[60%] md:h-max ">
               <span>My <strong>Next.js tutorial</strong> Notes </span>
               <h1 className="text-lg text-[40px] my-2">A step by step Next.Js tutorial made for beginners</h1>
-               <p className="hidden w-full text-[20px] text-white lg:w-[60%] md:block">Hello, i'm Stephen. I chose to create this beginner-friendly tutorial as a step by step process to learn Next.js 
+               <p className="hidden w-full text-[20px] text-white lg:w-[60%] md:block">Hello, i&apos;m Stephen. I chose to create this beginner-friendly tutorial as a step by step process to learn Next.js 
                 and other technologies that are commonly used within the Next.js ecosystem.
                 I really hope this helps in taking you to the next level as a Next.js developer!.
                 </p>
@@ -36,7 +37,7 @@ export default function Home() {
     <main className=" w-full">
       <section className="min-h-[60vh]">
          <p className="text-[20px] text-gray-500 text-justify px-5 py-3 md:hidden">
-          Hello, i'm Stephen. I chose to create this beginner-friendly tutorial as a step by step process to learn Next.js 
+          Hello, i&apos;m Stephen. I chose to create this beginner-friendly tutorial as a step by step process to learn Next.js 
           and other technologies that are commonly used within the Next.js ecosystem.
           I really hope this helps in taking you to the next level as a Next.js developer!.
             </p>
@@ -50,7 +51,7 @@ export default function Home() {
 
         <div className="flex-1 pl-3 text-white">
             <h2 className="text-[30px] mb-3">Learn Next.js step by step</h2>
-            <p className="text-sm text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <p className="text-sm text-white">learn, practice and grow!</p>
             <ImTwitter className="inline-block mr-5"/>
             <ImLinkedin className="inline-block"/>
         </div>

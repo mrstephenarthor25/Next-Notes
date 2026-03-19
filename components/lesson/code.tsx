@@ -4,7 +4,6 @@ import { Copy } from "lucide-react";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import {Prism as SyntaxHighlighter} from "react-syntax-highlighter";
-import { ReactNode } from "react";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 type prop = {
@@ -16,14 +15,14 @@ type prop = {
 }
 export default function CodeBLock({children,title,lang,numbers}:prop){
 
-    let [copy, setCopy] = useState(false);
+    const [copy, setCopy] = useState(false);
     
-    let addToClipBoard = ()=>{
+    const addToClipBoard = ()=>{
         navigator.clipboard.writeText(children.props.children.toString())
         .then(()=>{
             setCopy(true);
         })
-        .catch(err=>{
+        .catch(()=>{
             alert("Sorry: Faild to copy")
         })
     }
@@ -45,7 +44,7 @@ export default function CodeBLock({children,title,lang,numbers}:prop){
                         className="flex items-center gap-3"><span className="border border-solid rounded-sm px-2 py-1 bg-gray-300 text-white text-xs ">{lang}</span> {title}</span>
                         {copy && <span className="text-sm rounded-md px-3 py-2">copied</span>}
                         {copy==false &&
-                        <button className="cursor-pointer transition-all hover:text-blue-700 " onClick={_=>addToClipBoard()}>
+                        <button className="cursor-pointer transition-all hover:text-blue-700 " onClick={()=>addToClipBoard()}>
                                 <Copy/>
                         </button>
                         }

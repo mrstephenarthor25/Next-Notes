@@ -1,4 +1,3 @@
-import { InfoIcon } from "lucide-react";
 import { LightbulbIcon } from "lucide-react";
 export default function TypeScriptDesc(){
 

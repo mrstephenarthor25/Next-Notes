@@ -6,8 +6,8 @@ export default async function sitemap():Promise<MetadataRoute.Sitemap>{
     const domain = "https://next-notes-eta.vercel.app/";
 
     //get all the pages 
-    let contents = await getAllContents();
-    let url =  contents.map( (content)=>{
+    const contents = await getAllContents();
+    const url =  contents.map( (content)=>{
         return {
             url:`${domain}${content.slug}`,
             lastModified:new Date(),

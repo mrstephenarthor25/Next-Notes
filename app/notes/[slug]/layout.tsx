@@ -37,7 +37,7 @@ export default async function NotesLayout({children,params}:prop){
     //check if content as structured_data
     const setParam = await params; 
     const schema = await getContent( setParam.slug);
-    let mainEntity,jsonLd;
+    let mainEntity;
     mainEntity = null;
 
     if(schema !== null && schema.faq !== undefined){
@@ -55,14 +55,11 @@ export default async function NotesLayout({children,params}:prop){
         });
     }
     
-    jsonLd = {
+    const jsonLd = {
         '@context': "https://schema.org",
         '@type':"FAQpage",
         "mainEntity":mainEntity
     }
-
-    
-
 
     const active = "text-blue-900";
 
@@ -119,7 +116,7 @@ export default async function NotesLayout({children,params}:prop){
                    <div className="bg-white rounded-lg w-[90%] overflow-auto absolute bottom-5 h-[80vh] max-h-[80vh]">
                         <div className="px-3 h-[50vh] pb-5 flex items-end md:h-[20vh]">
 
-                            <div>
+                            <div className="">
                                 <span className="text-gray-500 bg-gray-100 px-4 py-2 font-bold rounded-full">{active_index+1}</span>
                                 <h1 className="text-3xl mt-2 mb-0 py-4 ">{all_notes[active_index].title}</h1>
                             </div>  
@@ -133,7 +130,7 @@ export default async function NotesLayout({children,params}:prop){
                        
                        <Pagination next={next} prev={prev} prevTitle={all_notes[active_index - 1]?.title} nextTitle={all_notes[active_index + 1]?.title}/>
 
-                       <Footer placeholder={all_notes[active_index].title}/>
+                       <Footer/>
                         <MobileSideBar aside_nodes={aside_nodes} title={all_notes[active_index].title} chapter={active_index + 1}/>
                     </div>
                 </div>

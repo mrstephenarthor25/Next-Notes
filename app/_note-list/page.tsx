@@ -5,7 +5,7 @@ import ListCard from "../components/blog-card";
 export default function NoteList(){
 //get all the notes
 
-let all_cards = contents.map((content,index)=>{
+const all_cards = contents.map((content,index)=>{
 
     if(index == contents.length - 1){
         return
