@@ -6,8 +6,8 @@ export default function LessonCard({title,desc,illustration,active,url}:{title:s
 
     return <div className="w-full relative min-h-[70vh] flex-1 rounded-md md:block">
         {/* image area */}
-        <div className="flex justify-center border border-solid">
-            <div className="h-[30vh] w-[50%] relative md:h-[40vh]">
+        <div className="flex justify-center">
+            <div className="h-[30vh] w-[60%] relative md:h-[40vh]">
                 <Image src={"/images/"+illustration} alt="" fill={true} className="block mb-5"/>
             </div>
         </div>
