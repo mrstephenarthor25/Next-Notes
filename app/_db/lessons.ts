@@ -4,7 +4,7 @@ const lessons = [
         desc:"Brief and begginer friendly step by step tutorials for Next.js from the begginer to advanced topics",
         illustration:"note-taker.jpg",
         active:true,
-        url:"/note/What-is-Nextjs"
+        url:"/notes/What-is-Nextjs"
     },
     {
         name:"blog",

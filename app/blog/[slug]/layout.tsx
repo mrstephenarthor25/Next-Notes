@@ -154,7 +154,7 @@ export default async function BlogLayout({children,params}:prop){
                    <NoteArea/>
 
                    <div className="bg-white rounded-lg w-[90%] overflow-auto absolute bottom-5 h-[80vh] max-h-[80vh]">
-                        <h1 className="text-3xl mt-9 mb-0 py-4 ">{all_blogs[active_index].title}</h1>
+                        <h1 className="text-3xl mt-9 mb-0 py-4">{all_blogs[active_index].title}</h1>
                     
 
                         <main className="px-2 py-5 md:px-5">

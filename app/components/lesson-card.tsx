@@ -6,12 +6,14 @@ export default function LessonCard({title,desc,illustration,active,url}:{title:s
 
     return <div className="w-full relative min-h-[70vh] flex-1 rounded-md md:block">
         {/* image area */}
-        <div className="h-[40vh] flex-1 relative">
-            <Image src={"/images/"+illustration} alt="" fill={true} className="block mb-5"/>
+        <div className="flex justify-center border border-solid">
+            <div className="h-[30vh] w-[50%] relative md:h-[40vh]">
+                <Image src={"/images/"+illustration} alt="" fill={true} className="block mb-5"/>
+            </div>
         </div>
         <div className="flex-1 min-h-30vh bottom-0 left-0 right-0 px-5 py-3 pb-9 bg-white border-rounded-lg shadow-lg shadow-blue-300 ">
             <h3 className="">{title}</h3>
-            <p className="text-[20px]">{desc}</p>
+            <p>{desc}</p>
             {
                 active && <Link href={url} className="border border-solid rounded-full px-3 py-2">Take a look</Link> 
             }
