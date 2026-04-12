@@ -4,7 +4,8 @@ type FaqEntry = {
     question:string,
     expectedAnswer:string
 }
-type content = {
+export type  content = {
+
     title:string,
     slug:string,
     page:string,
@@ -15,6 +16,9 @@ type content = {
     category?:string
 
 }
+
+
+
 
 type blog = {
     title:string,
@@ -134,5 +138,24 @@ export async function getAllContents(){
 
     return contents;
 
+}
+
+export async function getAllNextContent({start,numberOfContent}:{start?:number,numberOfContent?:number}){
+    
+    if(start == null){
+        return contents
+    }
+
+    if(Number(start) >= 0){
+
+        let result = contents.filter((content,id)=>{
+            let batch = start + (numberOfContent? numberOfContent:4)
+            if(id < batch){
+                return content
+            }
+        })
+
+        return result;
+    }
 }
 

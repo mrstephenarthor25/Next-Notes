@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import {ThemeProvider} from "next-themes";
 
 
 
@@ -29,15 +30,17 @@ export default function RootLayout({
   // });
   
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
       <meta name="google-site-verification" content="wq2q6NCR9OU6GFsEXRzcUkcXItuv6gHSptducnPBFjg" />
       </head>
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased h-[100vh] p-0 m-0`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-[100vh] p-0 m-0 overflow-x-hidden`}
       >
+        <ThemeProvider attribute="class" enableSystem defaultTheme="system">
         {children}
+        </ThemeProvider>
       </body>
     </html>
   );

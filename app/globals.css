@@ -142,5 +142,57 @@
   body {
     @apply bg-background text-foreground;
   }
+  .dark body{
+    @apply bg-[var(--background)]
+  }
 
+  #general_ui_nav li{
+    @apply py-2 px-5
+  }
+
+  .general_ui_active{
+    color:white;
+    background-color: rgb(108, 64, 150);
+    @apply rounded-full ;
+
+  }
+
+  ::-webkit-scrollbar{
+    width:5px;
+  }
+  ::-webkit-scrollbar-track{
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb{
+    @apply bg-blue-400 rounded-full
+  }
+
+  ::scrollbar-thumb:hover{
+
+    @apply bg-blue-900
+  }
+
+}
+
+
+/* Embla Carousel slider default css */
+.embla{
+  --slide-size:100%;
+  --slide-spacing:30px;
+}
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  /* margin-left:calc(var(--slide-spacing) * -1) */
+}
+
+.embla__slide {
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  @apply px-5
 }
