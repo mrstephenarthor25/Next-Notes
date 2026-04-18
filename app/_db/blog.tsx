@@ -11,11 +11,12 @@ type blog = {
     pageTitle?:string,
     page:string,
     desc?:string,
-    reslove: ()=>Promise<{default:React.ComponentType<any>}>,
+    reslove: ()=>Promise<{default:React.ComponentType<React.ReactNode>}>,
     faq?: FaqEntry[],
     publish?:boolean,
     published:string,
     modified:string
+    imageUrl?:string
 
 }
 
@@ -27,6 +28,7 @@ export const blogposts: blog[] =  [
         title:"Next.js 15 Folder Structure Explained For Beginners",
         slug:"Next.js-15-Folder-Structure-Explained-For-Beginners",
         page:"structure",
+        imageUrl:"/images/blog.jpg",
         desc:"New to Next.js? This beginner-friendly guide breaks down every default folder and file in a Next.js 15 project, explains routing and shows how to structure real projects step by step",
         reslove:()=>import("@/mdx/blog/structure.mdx"),
         faq:[{
@@ -52,7 +54,7 @@ export const blogposts: blog[] =  [
 
 export async function getBlogPost(slug:string){
 
-    let content = blogposts.find((entry)=>{
+    const content = blogposts.find((entry)=>{
 
         if(entry.slug.toLocaleLowerCase() == slug.toLocaleLowerCase()){
 

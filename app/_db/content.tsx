@@ -10,30 +10,27 @@ export type  content = {
     slug:string,
     page:string,
     desc?:string,
-    reslove: ()=>Promise<{default:React.ComponentType<any>}>,
+    reslove: ()=>Promise<{default:React.ComponentType<React.ReactNode>}>,
     faq?: FaqEntry[],
     publish?:boolean,
     category?:string
 
 }
 
-<<<<<<< HEAD
-=======
 
 
 
-type blog = {
-    title:string,
-    slug:string,
-    page:string,
-    desc?:string,
-    reslove: ()=>Promise<{default:React.ComponentType<any>}>,
-    faq?: FaqEntry[],
-    publish?:boolean,
+// type blog = {
+//     title:string,
+//     slug:string,
+//     page:string,
+//     desc?:string,
+//     reslove: ()=>Promise<{default:React.ComponentType<any>}>,
+//     faq?: FaqEntry[],
+//     publish?:boolean,
 
-}
+// }
 
->>>>>>> home-page-update
 // notes content
 export const contents: content[] = [
     {
@@ -151,8 +148,8 @@ export async function getAllNextContent({start,numberOfContent}:{start?:number,n
 
     if(Number(start) >= 0){
 
-        let result = contents.filter((content,id)=>{
-            let batch = start + (numberOfContent? numberOfContent:4)
+        const result = contents.filter((content,id)=>{
+            const batch = start + (numberOfContent? numberOfContent:4)
             if(id < batch){
                 return content
             }

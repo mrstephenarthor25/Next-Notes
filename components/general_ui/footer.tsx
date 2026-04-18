@@ -14,7 +14,7 @@ export default function Footer(){
                 <div className="flex-2">
                     <h2 className="text-[30px] text-bold-200 m-0">Learn Website <br className="inline md:hidden"/>Development <br/>Online</h2>
                     <p className="text-white text-sm max-w-[60%] md:max-w-full">Are you confused about how to get started learning <br/>
-                    web development online?<br/>Book a free 30mins call so i'll help you know exactly how you can get started.
+                    web development online?<br/>Book a free 30mins call so i&apos;ll help you know exactly how you can get started.
                     </p>
 
                     <button className="text-black bg-white px-5 py-3 rounded-full flex gap-5 justify-around">Book a Call  <ListCheck/> </button>
@@ -51,6 +51,4 @@ export default function Footer(){
         </div>
 
     </footer> 
-    
-    "this is the foooter"
 }

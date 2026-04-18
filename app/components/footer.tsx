@@ -7,7 +7,7 @@ import { useState,useEffect } from "react";
 
 export default function Footer(){
 
-    let pathName = usePathname();
+    const pathName = usePathname();
     const currentUrl = typeof window !== "undefined" ?  `${window.location.origin}${pathName}`:'';
 
      const [copy, setCopy] = useState(false);
@@ -17,7 +17,7 @@ export default function Footer(){
             .then(()=>{
                 setCopy(true);
             })
-            .catch(_=>{
+            .catch(()=>{
                 alert("Sorry: Failed to copy")
             })
         }

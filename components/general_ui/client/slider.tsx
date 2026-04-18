@@ -1,10 +1,9 @@
 "use client"; 
 
 import React from 'react';
-import { useEffect } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import { ArrowLeftIcon, ArrowBigRightIcon, ArrowRightIcon } from 'lucide-react';
-import Autoplay from 'embla-carousel-autoplay'
+import { ArrowLeftIcon,ArrowRightIcon } from 'lucide-react';
+
 
 // Using Embla Carousel v8
 export default function Slider({cards,cardCount}:{cards:React.ReactNode,cardCount?:number}){
@@ -14,11 +13,6 @@ const [emblaRef,emblaApi] = useEmblaCarousel({loop:true,slidesToScroll:cardCount
 
 const scrollPrev = () => emblaApi?.scrollPrev()
 const scrollNext = () => emblaApi?.scrollNext()
-
-useEffect(() => {
-if (!emblaApi) return
-emblaApi.plugins().autoplay?.play()
-}, [emblaApi])
 
 
   return (

@@ -1,14 +1,13 @@
-import { NoteInterface } from "@/app/_db/notes";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function ContentCard({title,description,imageUrl,ready,url}:{title:string,description:string,imageUrl:string,ready:boolean,url:string}){
+export default function ContentCard({title,description,imageUrl,url,alt}:{title:string,description:string,imageUrl:string,url:string,alt?:string}){
 
     return <div className="flex min-h-[30vh] justify-center">
                 <div className="block md:flex md:w-[70%] gap-3 mb-3">
 
                         <div className="flex-1 relative">
-                            <Image src={imageUrl} fill={true} alt="learn " className="absolute rounded-full"/> 
+                            <Image src={imageUrl} fill={true} alt={alt?alt:""} className="absolute rounded-full"/> 
                         </div>
 
                         

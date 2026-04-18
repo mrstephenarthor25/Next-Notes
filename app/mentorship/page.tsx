@@ -1,21 +1,19 @@
 import Header from "@/components/general_ui/header"
 import Image from "next/image"
 import Footer from "@/components/general_ui/footer"
-import { blogposts as contents } from "../_db/blog"
+import { liveSessions as contents } from "../_db/live_sessions"
 import ContentCard from "@/components/general_ui/notes_card"
 import { Metadata } from "next"
 
 export const metadata:Metadata = {
-    title:"Web Developmenet Blog for Beginners",
-    description:"Read beginner-friendly web development articles and guides. Learn HTML, JavaScript, Next.js, and core concepts with clear explanations and real examples"
+  title:"Web development mentorship",
+  description:"Join live web development mentorship for beginners. Learn frontend and fullstack skills with practical and guided sessions, practical prjects and real-time support"
 }
-
-
 export default function Page(){
 
      const content_list_card = contents?.map((content,id)=>{
             
-            return <ContentCard key={id} title={content.title} description={content.desc?content.desc:""} imageUrl={content.imageUrl? content.imageUrl:""} url={"blog/"+content.slug}/>
+            return <ContentCard key={id} alt={content.alt} title={content.title} description={content.description?content.description:""} imageUrl={content.imageUrl? content.imageUrl:""}  url={"blog/"+content.slug}/>
             
         })
         
@@ -30,8 +28,8 @@ export default function Page(){
                      {/* text */}
                      <div className="order-2 px-9 flex-1 flex items-center md:order-1 md:px-0">
                          <div>
-                           <h1 className=" text-[30px] mb-3 md:text-[40px]">Web Developmenet Blog for Beginners - Learn Concepts, Guides, and Best practices</h1>
-                           <p>Explore detailed articles that explain web development concepts in a clear and practical way. From HTML fundamentals to modern frameworks, these guides help you understand how things work beyond just writing code&#128522;</p>
+                           <h1 className=" text-[30px] mb-3 md:text-[40px]">Learn web development online with live mentorship and guided support</h1>
+                           <p>Learn web development through structured live mentorship designed for begginers. learn step by step with practical excercises, and real-time support to help you build string frontend and fullstack skills with confidence &#128522;.</p>
                          </div>
                      </div>
            

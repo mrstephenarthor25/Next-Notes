@@ -4,12 +4,34 @@ import Header from "@/components/general_ui/header"
 import ContentCard from "@/components/general_ui/notes_card";
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import { Metadata } from "next";
+
 
 
 type prop = {
     params: Promise<{slug:string}>
 }
 
+
+
+export function generateMetadata({params}:{params:{slug:string}}):Metadata{
+
+    const slug = (params).slug;
+    let slugToTitle = null;
+    
+
+    switch(slug.toLowerCase()){
+    case "next.js-15":
+        slugToTitle = "Next.js 15"
+        // imageUrl = "/images/lessons_card/next.js_15.jpg"
+    default: slugToTitle="Web development"
+    }
+    
+    return {
+        title:`Simple ${slugToTitle} Tutorials for beginners`,
+        description:`Follow step-by-step tutorial designed to help you learn ${slugToTitle} from the ground up. Each note breaks down concepts into simple explanations and practical examples so you can learn, practice, and improve consitently`
+    }
+}
 export default async function AllNotes({params}:prop){
 
     let contents = null;
@@ -33,7 +55,7 @@ export default async function AllNotes({params}:prop){
     //make content list card
     const content_list_card = contents?.map((content,id)=>{
         if(id < contents.length - 1){
-            return <ContentCard key={id} title={content.title} description={content.desc?content.desc:""} imageUrl={imageUrl? imageUrl:""}  url={""} ready={true}/>
+            return <ContentCard key={id} title={content.title} description={content.desc?content.desc:""} imageUrl={imageUrl? imageUrl:""}  url={""}/>
         }
     })
     //get content;
@@ -49,7 +71,7 @@ export default async function AllNotes({params}:prop){
                  <div className="order-2 px-9 flex-1 flex items-center md:order-1 md:px-0">
                      <div>
                        <h1 className=" text-[30px] mb-3 md:text-[40px]">Simple {slugToTitle} Tutorials for beginners</h1>
-                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga cum pariatur perspiciatis facilis reprehenderit? Qui culpa magni quia assumenda voluptatum.&#128522;</p>
+                       <p>`Follow step-by-step tutorial designed to help you learn ${slugToTitle} from the ground up. Each note breaks down concepts into simple explanations and practical examples so you can learn, practice, and improve consitently`.&#128522;</p>
                      </div>
                  </div>
        

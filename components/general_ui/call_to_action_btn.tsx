@@ -1,7 +1,7 @@
 import CallToActionFunc from "./call_to_action_func"
 import CallToActionUrl from "./call_to_action_url"
 
-export default function CallToAction({text,url,func}:{text:string,url?:string,func?:()=>{}}){
+export default function CallToAction({text,url,func}:{text:string,url?:string,func?:()=>void}){
 
     if(url==null && func ==null){
 

@@ -9,14 +9,14 @@ import { LucideMenu } from "lucide-react";
 
 export function MobileSideBar({aside_nodes,title,chapter}:{aside_nodes:ReactNode, title:string, chapter:number}){
 
-    let [open, setOpen] = useState(false);
-    let nav_styles="bg-gray-500/50 h-full fixed bottom-0 flex flex-col justify-between left-0 right-0 transition-all transition-delay-500 rounded-md";
+    const [open, setOpen] = useState(false);
+    const nav_styles="bg-gray-500/50 h-full fixed bottom-0 flex flex-col justify-between left-0 right-0 transition-all transition-delay-500 rounded-md";
 
     return <div>
         <div className="px-3 py-2 md:hidden">
             
             {open == false && <div className="flex gap-3 items-center px-3 py-3 rounded-md bg-white shadow-md  shadow-gray-50 fixed top-[15%] right-[8%] w-[85vw] md:hidden">
-                    <button onClick={_=>setOpen(true)}><LucideMenu className="text-gray-500"/></button>
+                    <button onClick={()=>setOpen(true)}><LucideMenu className="text-gray-500"/></button>
 
                     <div className="text-sm">
                         <span className="font-bold">Chapter {chapter}</span>
@@ -28,7 +28,7 @@ export function MobileSideBar({aside_nodes,title,chapter}:{aside_nodes:ReactNode
             {<div id="sidebar" className={open==true? nav_styles:"hidden "+nav_styles}>
                 <div className="px-3 py-4 text-right">
                     <button id="closeBar"
-                        onClick={_=>setOpen(false)}
+                        onClick={()=>setOpen(false)}
                     ><LucideMenu className="text-white"/></button>
                 </div>
                 <div className="relative bg-white shadow-md shadow-gray-200 h-[40vh] w-full rounded-md overflow-x-auto">

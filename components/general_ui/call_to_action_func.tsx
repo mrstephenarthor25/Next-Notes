@@ -1,7 +1,6 @@
-import Link from "next/link";
 import { ArrowUpCircle } from "lucide-react";
 
-export default function CallToActionFunc({text,func}:{text:string,func:()=>{}}){
+export default function CallToActionFunc({text,func}:{text:string,func:()=>void}){
 
     return <button onClick={func} className=" hidden border border-gray-400 rounded-full md:flex justify-between items-center w-[30%]">
             <span>{text}</span>

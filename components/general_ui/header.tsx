@@ -1,4 +1,3 @@
-import CallToAction from "./call_to_action_btn"
 import ModeChange from "./client/mode"
 import Navigation from "./navigation"
 

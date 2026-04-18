@@ -2,14 +2,14 @@
 
 import Link from "next/link"
 import { useState } from "react"
-import { ArrowBigDownIcon, ArrowDown01, ChevronDown} from "lucide-react"
+import {ChevronDown} from "lucide-react"
 
 type MenuItem = {
     text:string,
     url:string|null
 }
 
-export default function DropBtn({buttonText,items,active}:{buttonText:string,items:MenuItem[],active:string}){
+export default function DropBtn({appendClass,buttonText,items,active}:{appendClass:string,buttonText:string,items:MenuItem[],active:string}){
 
     const [menu, setMenu] = useState(false);
 
@@ -19,12 +19,14 @@ export default function DropBtn({buttonText,items,active}:{buttonText:string,ite
         }
     })
     const menuItemsUi = menuItems.map((item,id)=>{
-        return <li className={`${active.toLowerCase().replaceAll("-"," ")==item.text.toLowerCase()? "border-b border-solid border-indigo-900":""}`}key={id}><Link href={item.url? item.url:"#"}>{item.text}</Link></li>
+        return <li className={`hover:text-purple-900 transition-all ease-in-out ${active.toLowerCase().replaceAll("-"," ")==item.text.toLowerCase()? "border-b border-solid border-indigo-900":""}`}key={id}><Link href={item.url? item.url:"#"}>{item.text}</Link></li>
     })
 
-    return <button className="relative flex items-center justify-around gap-3 transform-3d" onClick={()=>{
+    return <button className={"cursor-pointer relative flex items-center justify-around gap-3 transform-3d "+appendClass} onClick={()=>{
       
+        alert("clicked the button")
         setMenu(menu==false? true:false)
+        alert(setMenu)
         
     }}>
                 {buttonText} <ChevronDown className={`transition-all ease-in-out duration-300 rounded-full ${menu==true? "rotate-[180deg] shadow-md shadow-white":""}`}/>

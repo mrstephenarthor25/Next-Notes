@@ -3,7 +3,7 @@ import LessonCard from "./lesson-card";
 
 export default function LessonCardContainer(){
 
-    let lessons_card_collection = lessons.map((lesson,index)=>{
+    const lessons_card_collection = lessons.map((lesson,index)=>{
 
         return <LessonCard title={lesson.name} desc={lesson.desc} url={lesson.url} illustration={lesson.illustration} active={lesson.active} key={index}/>
     })
