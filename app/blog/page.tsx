@@ -37,7 +37,7 @@ export default function Page(){
            
                      {/* image */}
                      <div className="order-1 relative flex-1 md:order-2">
-                       <Image src={"/images/general_ui/ui-ux-designers-isometric-composition-with-small-people-creating-custom-design-web-site-3d-vector-illustration.png"} alt="learn how to create websites online" fill={true}/>
+                       <Image src={"/images/general_ui/blogpost.jpg"} alt="learn how to create websites online" fill={true}/>
                      </div>
                    </div>
     

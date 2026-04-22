@@ -16,9 +16,9 @@ export default function Header(){
         {/* <CallToAction text="Join the watilist" url="Register#"/> */}
 
         {/* light mode button */}
-        <div className="hidden md:block">
+        {/* <div className="hidden md:block">
             <ModeChange/>
-        </div>
+        </div> */}
     </header>
 
 }

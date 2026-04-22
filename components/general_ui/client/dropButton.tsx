@@ -24,9 +24,8 @@ export default function DropBtn({appendClass,buttonText,items,active}:{appendCla
 
     return <button className={"cursor-pointer relative flex items-center justify-around gap-3 transform-3d "+appendClass} onClick={()=>{
       
-        alert("clicked the button")
         setMenu(menu==false? true:false)
-        alert(setMenu)
+      
         
     }}>
                 {buttonText} <ChevronDown className={`transition-all ease-in-out duration-300 rounded-full ${menu==true? "rotate-[180deg] shadow-md shadow-white":""}`}/>

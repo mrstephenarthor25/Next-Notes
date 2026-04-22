@@ -8,7 +8,8 @@ export default function LiveSection(){
     const blogPost_card = liveSessions.map((liveSession,id)=>{
         return <LiveSessionCard key={id}
                     title={liveSession.title} 
-                    url="#" 
+                    url="#"
+                    alt={liveSession.alt}
                     imageUrl={liveSession.imageUrl} 
                     description={liveSession.description} 
                     mustHave = {[]}/>

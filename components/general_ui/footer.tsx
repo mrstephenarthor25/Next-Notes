@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ImFacebook } from "react-icons/im";
 import { ImInstagram } from "react-icons/im";
 import { ListCheck } from "lucide-react";
+import Schedule from "../schedule";
 
 export default function Footer(){
 
@@ -16,8 +17,9 @@ export default function Footer(){
                     <p className="text-white text-sm max-w-[60%] md:max-w-full">Are you confused about how to get started learning <br/>
                     web development online?<br/>Book a free 30mins call so i&apos;ll help you know exactly how you can get started.
                     </p>
-
-                    <button className="text-black bg-white px-5 py-3 rounded-full flex gap-5 justify-around">Book a Call  <ListCheck/> </button>
+                {/* booking comoponent */}
+                <Schedule/>
+                    {/* <button className="text-black bg-white px-5 py-3 rounded-full flex gap-5 justify-around">Book a Call  <ListCheck/> </button> */}
                 </div>
 
                 <div className="flex-1 gap-3 mt-8 md:mt-0 md:flex">
@@ -26,8 +28,8 @@ export default function Footer(){
                         <strong>Free resources</strong>
                         <ul className="list-none text-white m-0 p-0 text-sm" >
                             <li><Link href="/notes/What-is-Nextjs">Next.js 15</Link></li>
-                            <li><Link href="#" className="">HTML (coming shorlty)</Link></li>
-                            <li><Link href="#">Next.js 16 (coming shorlty)</Link></li>
+                            <li>HTML (coming shorlty)</li>
+                            <li>Next.js 16 (coming shorlty)</li>
                         </ul>
                     </div>
 
@@ -35,8 +37,8 @@ export default function Footer(){
                     <div className="flex-1">
                         <strong>Live Sessions</strong>
                         <ul className="list-none text-white m-0 p-0 text-sm">
-                            <li><Link href="#">Learn HTML & CSS</Link></li>
-                            <li><Link href="#">Learn FullStack web development(foundations)</Link></li>
+                            <li><Link href="/mentorship">Learn HTML & CSS</Link></li>
+                            <li><Link href="/mentorship">Learn FullStack web development(foundations)</Link></li>
                         </ul>
                         
                     </div>

@@ -1,16 +1,16 @@
 import { LiveInterface } from "@/app/_db/live_sessions";
 import { MessageCircle } from "lucide-react";
-import { ListCheckIcon } from "lucide-react";
+// import { ListCheckIcon } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function LiveSessionCard({title,description,imageUrl}:LiveInterface){
+export default function LiveSessionCard({title,description,imageUrl,alt}:LiveInterface){
 
     return <div className={`embla__slide h-fit rounded-[9%] relative`}>
 
         {/* image container */}
         <div className="h-[30vh] relative rounded-[9%] m-0" >
-             <Image src={imageUrl} fill={true} alt="learn " className="absolute rounded-[9%] m-0"/> 
+             <Image src={imageUrl} fill={true} alt={alt? alt:""} className="absolute rounded-[9%] m-0"/> 
         </div>
 
         <div className="h-[50%] m-0">
@@ -21,8 +21,8 @@ export default function LiveSessionCard({title,description,imageUrl}:LiveInterfa
             </div>
             
             <div className="pb-4 m-2 flex gap-3">
-                <Link href="#" className="block  flex-1 text-blue-900 flex justify-around bg-white text-black border py-3 rounded-full">Join the waitlist <ListCheckIcon/></Link>
-                <Link href="#" className="block  flex-1 text-blue-900 flex bg-white justify-around text-black border py-3 rounded-full">learn more <MessageCircle/> </Link>
+                {/* <Link href="#" className="block  flex-1 text-blue-900 flex justify-around bg-white text-black border py-3 rounded-full">Join the waitlist <ListCheckIcon/></Link> */}
+                <Link href="https://wa.link/1vq1nt" className="block  flex-1 text-blue-900 flex bg-white justify-around text-black border py-3 rounded-full">learn more <MessageCircle/> </Link>
             </div>
 
         </div>

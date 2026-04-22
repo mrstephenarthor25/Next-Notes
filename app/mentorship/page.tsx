@@ -2,7 +2,7 @@ import Header from "@/components/general_ui/header"
 import Image from "next/image"
 import Footer from "@/components/general_ui/footer"
 import { liveSessions as contents } from "../_db/live_sessions"
-import ContentCard from "@/components/general_ui/notes_card"
+import MentorshipCard from "@/components/general_ui/live_session"
 import { Metadata } from "next"
 
 export const metadata:Metadata = {
@@ -13,7 +13,7 @@ export default function Page(){
 
      const content_list_card = contents?.map((content,id)=>{
             
-            return <ContentCard key={id} alt={content.alt} title={content.title} description={content.description?content.description:""} imageUrl={content.imageUrl? content.imageUrl:""}  url={"blog/"+content.slug}/>
+            return <MentorshipCard key={id} alt={content.alt} title={content.title} description={content.description?content.description:""} imageUrl={content.imageUrl? content.imageUrl:""}  url="https://wa.link/1vq1nt"/>
             
         })
         
@@ -35,7 +35,7 @@ export default function Page(){
            
                      {/* image */}
                      <div className="order-1 relative flex-1 md:order-2">
-                       <Image src={"/images/general_ui/ui-ux-designers-isometric-composition-with-small-people-creating-custom-design-web-site-3d-vector-illustration.png"} alt="learn how to create websites online" fill={true}/>
+                       <Image src={"/images/general_ui/live-mentorship.jpg"} alt="learn how to create websites online" fill={true}/>
                      </div>
                    </div>
     
