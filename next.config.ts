@@ -7,7 +7,23 @@ const nextConfig = {
   // Optionally, add any other Next.js config below
   eslint:{
     ignoreDuringBuilds:true
-  }
+  },
+
+  // async redirects(){
+  //   return [
+  //     {  
+  //       source:"/:path*",
+  //       has:[
+  //         {
+  //           type:'host',
+  //           value:'ags-je65.vercel.app'
+  //         }
+  //       ],
+  //       destination:"https://awhemeronglobalservices.com.ng/:path*",
+  //       permanent:true
+  //     }
+  //   ]
+  // }
 }
  
 const withMDX = createMDX({
