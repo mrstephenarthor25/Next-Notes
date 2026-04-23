@@ -9,15 +9,15 @@ import getCourseSchema from "@/app/hooks/getCourseSchema";
 
 
 
-type prop = {
+type props = {
     params: Promise<{slug:string}>
 }
 
 
 
-export function generateMetadata({params}:{params:{slug:string}}):Metadata{
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{
 
-    const slug = (params).slug;
+    const {slug} = await params;
     let slugToTitle = null;
     
 
@@ -33,13 +33,13 @@ export function generateMetadata({params}:{params:{slug:string}}):Metadata{
         description:`Follow step-by-step tutorial designed to help you learn ${slugToTitle} from the ground up. Each note breaks down concepts into simple explanations and practical examples so you can learn, practice, and improve consitently`
     }
 }
-export default async function AllNotes({params}:{params:{slug:string}}){
+export default async function AllNotes({params}:props){
 
     let contents = null;
     let imageUrl = null;
     let slugToTitle = null
 
-    const slug = params.slug;
+    const {slug} = await (params);
     let schema = null;
 
     if(slug == null){
