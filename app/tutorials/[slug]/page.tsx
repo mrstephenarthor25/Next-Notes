@@ -33,13 +33,13 @@ export function generateMetadata({params}:{params:{slug:string}}):Metadata{
         description:`Follow step-by-step tutorial designed to help you learn ${slugToTitle} from the ground up. Each note breaks down concepts into simple explanations and practical examples so you can learn, practice, and improve consitently`
     }
 }
-export default async function AllNotes({params}:prop){
+export default async function AllNotes({params}:{params:{slug:string}}){
 
     let contents = null;
     let imageUrl = null;
     let slugToTitle = null
 
-    const slug = (await params).slug;
+    const slug = params.slug;
     let schema = null;
 
     if(slug == null){
