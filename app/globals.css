@@ -150,6 +150,9 @@
     @apply px-5
   }
 
+  #mobile_nav> ul li{
+    @apply py-3
+  }
   .general_ui_active{
     color:white;
     background-color: rgb(108, 64, 150);

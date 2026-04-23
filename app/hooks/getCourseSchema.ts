@@ -23,4 +23,6 @@ export default function getCourseSchema({urlDir,slugToTitle,contents}:{urlDir:st
             })
             
         }
+
+        return schema;
 }

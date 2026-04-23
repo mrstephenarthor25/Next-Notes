@@ -68,10 +68,7 @@ export default async function AllNotes({params}:prop){
             return <ContentCard key={id} title={content.title} description={content.desc?content.desc:""} imageUrl={imageUrl? imageUrl:""}  url={""}/>
         }
     })
-    {/* course schema */}
     
-    
-    //get content;
     return <>
     {schema && <script type="application/ld+json" dangerouslySetInnerHTML={{
         __html:JSON.stringify(schema)
