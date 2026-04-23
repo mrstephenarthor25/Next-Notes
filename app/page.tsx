@@ -8,9 +8,12 @@ import Footer from "@/components/general_ui/footer";
 
 
 export const metadata :Metadata ={
-  title: "Next.js Tutorial for beginners",
-  description:"Learn Next.js using a step by step tutorial that would guide you as a beginner from the basics up to the advanced parts of Next.js. Helping you grow from a beginner to a Next.js Pro"
-  
+  title: "Learn how to create websites online",
+  description:"Learn Next.js using a step by step tutorial that would guide you as a beginner from the basics up to the advanced parts of Next.js. Helping you grow from a beginner to a Next.js Pro",
+  icons:{
+    icon:'/icon.png',
+    apple:'/apple-touch.png'
+  }
 }
 
 export default function Home() {
@@ -23,7 +26,7 @@ export default function Home() {
         <Header/>
 
         {/* hero */}
-        <div className="flex flex-col h-[90vh] md:px-[9%] md:pr-[2%] md:flex-row md:h-[70vh]">
+        <div className="flex flex-col min-h-[90vh] md:px-[9%] md:pr-[2%] md:flex-row md:min-h-[70vh]">
           {/* text */}
           <div className="order-2 px-9 flex-1 flex items-center md:order-1 md:px-0">
               <div>

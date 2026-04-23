@@ -11,6 +11,7 @@ export default function NoteSection(){
                     imageUrl={note.imageUrl} 
                     description={note.description} 
                     mustHave = {[]}
+                    alt={note.alt}
                     ready={note.ready}/>
     })
 

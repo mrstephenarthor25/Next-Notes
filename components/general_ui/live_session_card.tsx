@@ -20,9 +20,9 @@ export default function LiveSessionCard({title,description,imageUrl,alt}:LiveInt
                 <p className="text-sm m-0 py-3">{description}</p>
             </div>
             
-            <div className="pb-4 m-2 flex gap-3">
+            <div className="pb-4 m-2 flex justify-around">
                 {/* <Link href="#" className="block  flex-1 text-blue-900 flex justify-around bg-white text-black border py-3 rounded-full">Join the waitlist <ListCheckIcon/></Link> */}
-                <Link href="https://wa.link/1vq1nt" className="block  flex-1 text-blue-900 flex bg-white justify-around text-black border py-3 rounded-full">learn more <MessageCircle/> </Link>
+                <Link href="https://wa.link/1vq1nt" className="block flex gap-3 text-blue-900 flex bg-white text-black border py-3 rounded-full">learn more <MessageCircle/> </Link>
             </div>
 
         </div>

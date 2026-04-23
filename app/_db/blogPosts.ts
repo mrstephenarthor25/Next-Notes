@@ -15,7 +15,7 @@ export const blogPosts:BlogInterface[] = [
         imageUrl:"/images/lessons_card/next.js_15.jpg",
         description:"Understand the core ideas behind Next.js 15 through practical explanations and real development examples. This blog explores routing, layouts, data fetching and application structure while helping you connect React fundmentals with modern framework workflows. Designed to help learners transition confidently from basic React Knowledge to professional web development practices",
         url:"/blog/Next.js-15-Folder-Structure-Explained-For-Beginners",
-        alt:"Learn Next.js 15",
+        alt:"Learn how to create websites online using Next.js 15",
         mustHave:[
             "Have this",
             "Have this"
@@ -28,7 +28,7 @@ export const blogPosts:BlogInterface[] = [
         imageUrl:"/images/lessons_card/next.js_16.png",
         description:"A detailed deep dive into Next.js 16 explaining how modern full-stack React applications work behind the scenes. This article breaks down server components, routing architecture, rendering strategies, performance improvements, and real-world development patterns in a clear and beginner friendly way. Perfect for developers who want to move beyond tutorials and truly understand Next.js concepts",
         url:"",
-        alt:"learn Next.js 16",
+        alt:"Learn how to create websites online using Next.js 16",
         mustHave:[
             "Have this",
             "Have this"
@@ -41,7 +41,7 @@ export const blogPosts:BlogInterface[] = [
         imageUrl:"/images/lessons_card/HTML.jpg",
         description:"A comprehensive beginner's guide to HTML that explains not just how to write tags, but why web pages are structured the way they are. This blog explores semantic HTML, accessibility, page structure, forms, and best practices used by real developers. Ideal for new learners who want a strong foundation before moving into css and JavaScript",
         url:"",
-        alt:"learn HTML",
+        alt:"Learn how to create websites online starting with HTML",
         mustHave:[
             "Have this",
             "Have this"

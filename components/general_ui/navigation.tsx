@@ -27,7 +27,7 @@ export default function Navigation(){
      ]
   
     return <>
-    <nav  className="hidden  border border-3 border-gray-500 rounded-full w-full md:flex md:items-center">
+    <nav  className="hidden border border-3 border-gray-500 rounded-full w-full md:flex-1 md:flex md:items-center">
         <ul id="general_ui_nav" className="list-none flex justify-between  w-full m-0 px-3 py-2">
             <li className={`block border-b border-b-3 border-transparent border-solid ${active==""?"general_ui_active":'hover:border-purple-900 transition-all ease-in-out delay-200'}`}><Link href="/">Home</Link></li>
             <li className={`block border-b border-b-3 border-transparent border-solid  ${active=="tutorials"?"general_ui_active":'hover:border-purple-900 transition-all ease-in-out delay-200'}`}>

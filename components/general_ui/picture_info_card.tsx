@@ -2,11 +2,11 @@ import { NoteInterface } from "@/app/_db/notes";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function PictureCard({title,description,imageUrl,ready,url}:NoteInterface){
+export default function PictureCard({title,description,imageUrl,ready,url,alt}:NoteInterface){
 
     return <div className={`embla__slide min-h-[65vh] rounded-[9%] relative shadow-lg h-fit`}>
 
-         <Image src={imageUrl} fill={true} alt="learn " className="absolute rounded-[9%]"/> 
+         <Image src={imageUrl} fill={true} alt={alt} className="absolute rounded-[9%]"/> 
 
         <div className="h-max absolute left-0 right-0 bottom-0 z-3 bg-gray-900/90">
             

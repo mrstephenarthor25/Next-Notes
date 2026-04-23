@@ -12,6 +12,7 @@ export default function BlogSection(){
                     imageUrl={blogPost.imageUrl} 
                     description={blogPost.description} 
                     mustHave = {[]}
+                    alt={blogPost.alt}
                     ready={blogPost.ready}/>
     })
 

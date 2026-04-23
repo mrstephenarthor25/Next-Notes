@@ -5,6 +5,7 @@ import ContentCard from "@/components/general_ui/notes_card";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Metadata } from "next";
+import getCourseSchema from "@/app/hooks/getCourseSchema";
 
 
 
@@ -39,6 +40,7 @@ export default async function AllNotes({params}:prop){
     let slugToTitle = null
 
     const slug = (await params).slug;
+    let schema = null;
 
     if(slug == null){
         notFound()
@@ -48,6 +50,14 @@ export default async function AllNotes({params}:prop){
             slugToTitle = "Next.js 15"
             contents = await getAllNextContent({start:0});
             imageUrl = "/images/lessons_card/next.js_15.jpg"
+            if(contents!=undefined){
+                schema = getCourseSchema({
+                urlDir:"notes",
+                slugToTitle,
+                contents:contents
+            })
+            }
+            
             break;
         default: notFound()
        }
@@ -58,8 +68,14 @@ export default async function AllNotes({params}:prop){
             return <ContentCard key={id} title={content.title} description={content.desc?content.desc:""} imageUrl={imageUrl? imageUrl:""}  url={""}/>
         }
     })
+    {/* course schema */}
+    
+    
     //get content;
     return <>
+    {schema && <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html:JSON.stringify(schema)
+    }} />}
     <Header/>
 
 
