@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/notes/((?!html|nextjs15).*)",
+      "destination": "https://webdevbysteve.online/notes/nextjs15/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "destination": "https://webdevbysteve.online/$1",
+      "permanent": true
+    }
+  ]
+}
