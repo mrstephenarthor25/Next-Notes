@@ -1,13 +1,18 @@
 {
   "redirects": [
     {
-      "source": "/notes/((?!html|nextjs15).*)",
-      "destination": "https://webdevbysteve.online/notes/nextjs15/$1",
+      "source": "/blog/Next.js-15-Folder-Structure-Explained-For-Beginners",
+      "destination": "https://webdevbysteve.online/blog/Next.js-15-Folder-Structure-Explained-For-Beginners",
       "permanent": true
     },
     {
-      "source": "/(.*)",
-      "destination": "https://webdevbysteve.online/$1",
+      "source": "/notes/Next.js-project-Structure",
+      "destination": "https://webdevbysteve.online/notes/nextjs15/Next.js-project-Structure",
+      "permanent": true
+    },
+    {
+      "source": "/notes/What-is-Nextjs",
+      "destination": "https://webdevbysteve.online/notes/nextjs15/What-is-Nextjs",
       "permanent": true
     }
   ]
