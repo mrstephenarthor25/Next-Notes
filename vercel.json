@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/",
+      "destination": "https://webdevbysteve.online/",
+      "permanent": true
+    },
+    {
       "source": "/blog/Next.js-15-Folder-Structure-Explained-For-Beginners",
       "destination": "https://webdevbysteve.online/blog/Next.js-15-Folder-Structure-Explained-For-Beginners",
       "permanent": true
