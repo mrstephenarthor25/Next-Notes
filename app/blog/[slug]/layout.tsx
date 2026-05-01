@@ -165,7 +165,7 @@ export default async function BlogLayout({children,params}:prop){
                        <Pagination next={next} prev={prev} prevTitle={all_blogs[active_index - 1]?.title} nextTitle={all_blogs[active_index + 1]?.title}/>
 
                        <Footer/>
-                        <MobileBlogSideBar aside_nodes={aside_nodes} title={all_blogs[active_index].title} chapter={active_index + 1}/>
+                        <MobileBlogSideBar aside_nodes={aside_nodes} title={all_blogs[active_index].title} />
                     </div>
                 </div>
                 
