@@ -10,7 +10,7 @@ export type  content = {
     slug:string,
     page:string,
     desc?:string,
-    reslove: ()=>Promise<{default:React.ComponentType<React.ReactNode>}>,
+    reslove: ()=>Promise<{default:React.ComponentType<any>}>,
     faq?: FaqEntry[],
     publish?:boolean,
     category?:string
