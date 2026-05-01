@@ -11,7 +11,7 @@ type blog = {
     pageTitle?:string,
     page:string,
     desc?:string,
-    reslove: ()=>Promise<{default:React.ComponentType<React.ReactNode>}>,
+    reslove: ()=>Promise<{default:React.ComponentType<any>}>,
     faq?: FaqEntry[],
     publish?:boolean,
     published:string,
